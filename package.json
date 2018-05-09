@@ -1,0 +1,52 @@
+{
+  "name": "@0xcert/ethereum-xcert",
+  "version": "1.0.0",
+  "description": "Xcert token standard implementation for the Ethereum blockchain.",
+  "main": "truffle.js",
+  "directories": {
+    "contracts": "contracts",
+    "migrations": "migrations",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test"
+  },
+  "author": "0xcert",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xcert/ethereum-xcert.git"
+  },
+  "bugs": {
+    "url": "https://github.com/0xcert/etheethereum-xcertreum/issues"
+  },
+  "homepage": "https://github.com/0xcert/ethereum-xcert#readme",
+  "keywords": [
+    "ethereum",
+    "blockchain",
+    "eth",
+    "contract",
+    "contracts",
+    "smart",
+    "smart-contract",
+    "smart-contracts",
+    "token",
+    "tokens",
+    "nft",
+    "nfts",
+    "non-fungible",
+    "non-fungibles",
+    "eip",
+    "erc",
+    "erc721",
+    "erc-721",
+    "deed",
+    "standard",
+    "xcert",
+    "certified",
+    "certificate"
+  ],
+  "devDependencies": {
+    "truffle": "^4.1.8"
+  }
+}
