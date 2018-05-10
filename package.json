@@ -50,6 +50,7 @@
     "truffle": "^4.1.8"
   },
   "dependencies": {
+    "@0xcert/ethereum-erc721": "^1.0.0",
     "ethjs-util": "^0.1.4"
   }
 }

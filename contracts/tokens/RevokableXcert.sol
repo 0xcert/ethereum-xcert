@@ -21,14 +21,8 @@ contract RevokableXcert is Xcert {
     external
   {
     address tokenOwner = idToOwner[_tokenId];
-    if (getApproved(_tokenId) != 0) {
-      clearApproval(tokenOwner, _tokenId);
-    }
+    super._burn(tokenOwner, _tokenId);
 
-    removeNFToken(tokenOwner, _tokenId);
-    delete idToUri[_tokenId];
     delete idToProof[_tokenId];
-
-    emit Transfer(owner, address(0), _tokenId);
   }
 }

@@ -1,6 +1,6 @@
 const RevokableXcert = artifacts.require('RevokableXcert');
 const util = require('ethjs-util');
-const assertRevert = require('../helpers/assertRevert');
+const assertRevert = require('../../node_modules/@0xcert/ethereum-erc721/test/helpers/assertRevert');
 
 contract('RevokableXcert', (accounts) => {
   let xcert;

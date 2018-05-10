@@ -21,15 +21,8 @@ contract BurnableXcert is Xcert {
     validNFToken(_tokenId)
     external
   {
-    if (getApproved(_tokenId) != 0) {
-      clearApproval(msg.sender, _tokenId);
-    }
-
-    removeNFToken(msg.sender, _tokenId);
-    delete idToUri[_tokenId];
+    super._burn(msg.sender, _tokenId);
     delete idToProof[_tokenId];
-
-    emit Transfer(msg.sender, address(0), _tokenId);
   }
 
 }

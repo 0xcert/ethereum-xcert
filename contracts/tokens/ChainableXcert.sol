@@ -64,5 +64,4 @@ contract ChainableXcert is Xcert {
   {
     return idToProof[_tokenId].length;
   }
-
 }
