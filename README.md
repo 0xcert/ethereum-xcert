@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/0xcert/ethereum-xcert.svg?branch=master)](https://travis-ci.org/0xcert/ethereum-xcert)&nbsp;[![npm version](https://badge.fury.io/js/@0xcert%2Fethereum-xcert.svg)](https://badge.fury.io/js/@0xcert%2Fethereum-xcert)&nbsp;[![Dependency Status](https://gemnasium.com/0xcert/ethereum-xcert.svg)](https://gemnasium.com/0xcert/ethereum-xcert)
+[![Build Status](https://travis-ci.org/0xcert/ethereum-xcert.svg?branch=master)](https://travis-ci.org/0xcert/ethereum-xcert)&nbsp;[![NPM Version](https://badge.fury.io/js/@0xcert%2Fethereum-xcert.svg)](https://badge.fury.io/js/@0xcert%2Fethereum-xcert)&nbsp;[![Dependencies Status](https://david-dm.org/0xcert/ethereum-xcert.svg)](https://david-dm.org/0xcert/ethereum-xcert)
 
 # Xcert Token
 
