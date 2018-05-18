@@ -4,9 +4,12 @@
   "description": "Xcert token standard implementation for the Ethereum blockchain.",
   "main": "truffle.js",
   "directories": {
-    "contracts": "contracts",
-    "migrations": "migrations",
-    "test": "test"
+    "compile": "truffle compile",
+    "console": "truffle console",
+    "lint": "eslint './**/*.js?(x)'",
+    "migrate": "truffle migrate",
+    "networks": "truffle networks",
+    "test": "truffle test"
   },
   "scripts": {
     "test": "truffle test"
@@ -18,7 +21,7 @@
     "url": "git+https://github.com/0xcert/ethereum-xcert.git"
   },
   "bugs": {
-    "url": "https://github.com/0xcert/etheethereum-xcertreum/issues"
+    "url": "https://github.com/0xcert/ethereum-xcert/issues"
   },
   "homepage": "https://github.com/0xcert/ethereum-xcert#readme",
   "keywords": [
@@ -51,7 +54,7 @@
     "truffle": "^4.1.8"
   },
   "dependencies": {
-    "@0xcert/ethereum-erc721": "^1.0.0",
+    "@0xcert/ethereum-erc721": "^1.1.1",
     "ethjs-util": "^0.1.4"
   }
 }
