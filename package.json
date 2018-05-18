@@ -51,10 +51,10 @@
     "certificate"
   ],
   "devDependencies": {
+    "ethjs-util": "^0.1.4",
     "truffle": "^4.1.8"
   },
   "dependencies": {
-    "@0xcert/ethereum-erc721": "^1.1.1",
-    "ethjs-util": "^0.1.4"
+    "@0xcert/ethereum-erc721": "^1.1.1"
   }
 }
