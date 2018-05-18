@@ -44,6 +44,7 @@
     "standard",
     "xcert",
     "certified",
+    "certification",
     "certificate"
   ],
   "devDependencies": {
