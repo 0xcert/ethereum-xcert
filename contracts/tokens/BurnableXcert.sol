@@ -23,7 +23,5 @@ contract BurnableXcert is Xcert {
     external
   {
     super._burn(msg.sender, _tokenId);
-    delete idToProof[_tokenId];
   }
-
 }

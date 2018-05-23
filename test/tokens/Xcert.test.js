@@ -285,12 +285,6 @@ contract('Xcert', (accounts) => {
     assert.equal(symbol, 'F');
   });
 
-  it('returns the correct proof for NFToken id', async () => {
-    await xcert.mint(accounts[1], id2, mockProof, 'url2');
-    var proof = await xcert.tokenProof(id2);
-    assert.equal(proof, mockProof);
-  });
-
   it('returns the correct NFToken id 2 url', async () => {
     await xcert.mint(accounts[1], id2, mockProof, 'url2');
     const tokenURI = await xcert.tokenURI(id2);

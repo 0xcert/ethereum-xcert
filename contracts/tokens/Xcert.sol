@@ -20,12 +20,6 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
   bytes4 private nftConvention;
 
   /*
-   * @dev Maps NFT ID to proof.
-   * @notice The Proof array for every token must include one or more items.
-   */
-  mapping (uint256 => string[]) internal idToProof;
-
-  /*
    * @dev Maps authorized addresses to mint.
    */
   mapping (address => bool) internal addressToMintAuthorized;
@@ -87,22 +81,6 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
     require(bytes(_proof).length > 0);
     super._mint(_to, _id);
     super._setTokenUri(_id, _uri);
-    idToProof[_id].push(_proof);
-  }
-
-  /*
-   * @dev Gets proof for NFT token.
-   * @param _tokenId Id of the NFT.
-   */
-  function tokenProof(
-    uint256 _tokenId
-  )
-    validNFToken(_tokenId)
-    external
-    view
-    returns (string)
-  {
-    return idToProof[_tokenId][idToProof[_tokenId].length.sub(1)];
   }
 
   /**
