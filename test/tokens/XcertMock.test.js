@@ -26,13 +26,6 @@ contract('XcertMock', (accounts) => {
     await xcert.setPause(true);
     await assertRevert(xcert.transferFrom(accounts[0], accounts[1], id1));
   });
-
-  it('correctly chains additional proof', async () => {
-    await xcert.chain(id1, mockProof2);
-    var proof = await xcert.tokenProof(id1);
-    assert.equal(proof, mockProof2);
-  });
-
   it('revokes NFToken id 1', async () => {
     await xcert.revoke(id1, {from: accounts[0]});
     const count = await xcert.balanceOf(accounts[0]);
