@@ -8,12 +8,13 @@ contract XcertMock is BurnableXcert, PausableXcert, RevokableXcert {
 
   constructor(
     string _name,
-    string _symbol
+    string _symbol,
+    bytes4 _convention
   )
     public
-    BurnableXcert(_name, _symbol)
-    PausableXcert(_name, _symbol)
-    RevokableXcert(_name, _symbol)
+    BurnableXcert(_name, _symbol, _convention)
+    PausableXcert(_name, _symbol, _convention)
+    RevokableXcert(_name, _symbol, _convention)
   {
 
   }

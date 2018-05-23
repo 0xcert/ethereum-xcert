@@ -12,7 +12,7 @@ contract('Xcert', (accounts) => {
   let mockProof = "1e205550c271490347e5e2393a02e94d284bbe9903f023ba098355b8d75974c8";
 
   beforeEach(async function () {
-    xcert = await Xcert.new('Foo', 'F');
+    xcert = await Xcert.new('Foo', 'F', '0xa65de9e6');
   });
 
   it('returns correct balanceOf after mint', async () => {

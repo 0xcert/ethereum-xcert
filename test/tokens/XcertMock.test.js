@@ -12,7 +12,7 @@ contract('XcertMock', (accounts) => {
   let mockProof2 = "1e205550c271490347e5e2393a02e94d284bbe9903f023ba098355b8d75974d7";
 
   beforeEach(async function () {
-    xcert = await Xcert.new('Foo', 'F');
+    xcert = await Xcert.new('Foo', 'F', '0xa65de9e6');
     await xcert.mint(accounts[0], id1, mockProof, 'url1');
   });
 

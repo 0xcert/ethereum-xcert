@@ -11,7 +11,7 @@ contract('PausableXcert', (accounts) => {
   let mockProof = "1e205550c271490347e5e2393a02e94d284bbe9903f023ba098355b8d75974c8";
 
   beforeEach(async function () {
-    xcert = await PausableXcert.new('Foo', 'F');
+    xcert = await PausableXcert.new('Foo', 'F', '0xa65de9e6');
   });
 
   it('correctly sets pause state', async () => {
