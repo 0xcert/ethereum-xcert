@@ -64,7 +64,6 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
     NFTokenMetadata(_name, _symbol)
     public
   {
-    require(_convention.length > 0);
     nftConvention = _convention;
     supportedInterfaces[0x355d09e9] = true; // Xcert
   }

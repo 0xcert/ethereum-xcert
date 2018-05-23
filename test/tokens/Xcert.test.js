@@ -15,6 +15,11 @@ contract('Xcert', (accounts) => {
     xcert = await Xcert.new('Foo', 'F', '0xa65de9e6');
   });
 
+  it('returns correct convention', async () => {
+    const convention = await xcert.convention();
+    assert.equal(convention, '0xa65de9e6');
+  });
+
   it('returns correct balanceOf after mint', async () => {
     await xcert.mint(accounts[0], id1, mockProof, 'url');
     const count = await xcert.balanceOf(accounts[0]);
