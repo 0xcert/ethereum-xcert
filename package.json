@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Xcert token standard implementation for the Ethereum blockchain.",
   "main": "truffle.js",
-  "directories": {
-  },
+  "directories": {},
   "scripts": {
     "console": "truffle console",
     "compile": "truffle compile",
@@ -51,10 +50,10 @@
   ],
   "devDependencies": {
     "ethjs-util": "^0.1.4",
-    "truffle": "^4.1.8"
+    "truffle": "^4.1.11",
+    "web3-utils": "^1.0.0-beta.34"
   },
   "dependencies": {
-    "@0xcert/ethereum-erc721": "^1.1.1",
-    "web3-utils": "^1.0.0-beta.34"
+    "@0xcert/ethereum-erc721": "^1.1.1"
   }
 }
