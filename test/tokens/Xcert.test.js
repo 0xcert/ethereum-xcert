@@ -99,7 +99,7 @@ contract('Xcert', (accounts) => {
     assert.equal(address, accounts[1]);
   });
 
-  it('throws when trying to find owner od none existant NFT id', async () => {
+  it('throws when trying to find owner od non-existing NFT id', async () => {
     await assertRevert(xcert.ownerOf(id4));
   });
 
@@ -118,7 +118,7 @@ contract('Xcert', (accounts) => {
     assert.equal(address, 0);
   });
 
-  it('throws when trying to get approval of none existant NFT id', async () => {
+  it('throws when trying to get approval of non-existing NFT id', async () => {
     await assertRevert(xcert.getApproved(id4));
   });
 
@@ -294,7 +294,7 @@ contract('Xcert', (accounts) => {
     assert.equal(tokenURI, 'url2');
   });
 
-  it('throws when trying to get uri of none existant NFT id', async () => {
+  it('throws when trying to get uri of non-existing NFT id', async () => {
     await assertRevert(xcert.tokenURI(id4));
   });
 
@@ -316,7 +316,7 @@ contract('Xcert', (accounts) => {
     assert.equal(stage, 3);
   })
 
-  it('reverts trying to get none existant NFT data', async () => {
+  it('reverts trying to get non-existing NFT data', async () => {
     await xcert.mint(accounts[1], id2, 'url2', proof, config, data);
     await assertRevert(xcert.tokenDataValue.call(id2, 0));
   })
@@ -328,7 +328,7 @@ contract('Xcert', (accounts) => {
     assert.equal(stage, 5);
   })
 
-  it('reverts trying to change NFT none existant data', async () => {
+  it('reverts trying to change NFT non-existing data', async () => {
     await xcert.mint(accounts[1], id2, 'url2', proof, config, data);
     await assertRevert(xcert.setTokenDataValue(id2, 0, web3Util.padLeft(web3Util.numberToHex(5), 64)));
   })
