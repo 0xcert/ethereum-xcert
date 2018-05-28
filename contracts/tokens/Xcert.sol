@@ -14,8 +14,8 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
   using AddressUtils for address;
 
   /**
-   * @dev A bytes4 of keccak256 of json schema representing 0xcert protocol convention.
-   * @notice bytes4(keccak256(json)).
+   * @dev Unique ID which determines each Xcert smart contract type by its JSON convention.
+   * @notice Calculated as bytes4(keccak256(jsonSchema)).
    */
   bytes4 private nftConventionId;
 
@@ -25,12 +25,12 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
   mapping (uint256 => string) internal idToProof;
 
   /**
-   * @dev Map of protocol data.
+   * @dev Maps NFT ID to protocol config.
    */
   mapping (uint256 => bytes32[]) internal config;
 
   /**
-   * @dev Map of convention data.
+   * @dev Maps NFT ID to convention data.
    */
   mapping (uint256 => bytes32[]) internal data;
 
@@ -79,12 +79,11 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
 
   /**
    * @dev Mints a new NFT.
-   * @notice _dataKey and _dataValue length has to be the same.
    * @param _to The address that will own the minted NFT.
    * @param _id The NFT to be minted by the msg.sender.
    * @param _uri An URI pointing to NFT metadata.
    * @param _proof Cryptographic asset imprint.
-   * @param _config Array of config values.
+   * @param _config Array of protocol config values.
    * @param _data Array of convention data values.
    */
   function mint(
@@ -119,7 +118,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
   }
 
   /**
-   * @dev Gets proof for NFT.
+   * @dev Returns proof for NFT.
    * @param _tokenId Id of the NFT.
    */
   function tokenProof(
@@ -134,7 +133,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
   }
 
   /**
-   * @dev Sets value for specified key.
+   * @dev Modifies convention data by setting a new value for a given index field.
    * @param _tokenId Id of the NFT we want to set key value data.
    * @param _index for which we want to set value.
    * @param _value that we want to set.
@@ -153,7 +152,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
   }
 
   /**
-   * @dev Gets value of key for specific NFT.
+   * @dev Returns convention data value for a given index field.
    * @param _tokenId Id of the NFT we want to get value for key.
    * @param _index for which we want to get value.
    */
@@ -171,7 +170,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
   }
 
   /**
-   * @dev Gets expiration date from config values.
+   * @dev Returns expiration date from token config values.
    * @param _tokenId Id of the NFT we want to get expiration date of.
    */
   function tokenExpirationDate(
