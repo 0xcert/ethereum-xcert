@@ -19,7 +19,7 @@ contract('Xcert', (accounts) => {
   });
 
   it('returns correct convention', async () => {
-    const convention = await xcert.convention();
+    const convention = await xcert.conventionId();
     assert.equal(convention, '0xa65de9e6');
   });
 

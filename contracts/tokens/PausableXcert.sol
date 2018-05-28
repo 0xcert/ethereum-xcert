@@ -17,9 +17,9 @@ contract PausableXcert is Xcert {
   constructor(
     string _name,
     string _symbol,
-    bytes4 _convention
+    bytes4 _conventionId
   )
-    Xcert(_name, _symbol, _convention)
+    Xcert(_name, _symbol, _conventionId)
     public
   {
     supportedInterfaces[0xbedb86fb] = true; // PausableXcert

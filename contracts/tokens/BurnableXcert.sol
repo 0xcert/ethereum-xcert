@@ -7,9 +7,9 @@ contract BurnableXcert is Xcert {
   constructor(
     string _name,
     string _symbol,
-    bytes4 _convention
+    bytes4 _conventionId
   )
-    Xcert(_name, _symbol, _convention)
+    Xcert(_name, _symbol, _conventionId)
     public
   {
     supportedInterfaces[0x42966c68] = true; // BurnableXcert

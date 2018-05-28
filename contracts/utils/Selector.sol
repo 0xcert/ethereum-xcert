@@ -10,7 +10,7 @@ contract Selector {
     function calculateXcertSelector() public pure returns (bytes4) {
       Xcert i;
       return i.mint.selector
-         ^ i.convention.selector
+         ^ i.conventionId.selector
          ^ i.tokenProof.selector
          ^ i.setTokenDataValue.selector
          ^ i.tokenDataValue.selector
