@@ -4,9 +4,11 @@ import "./Xcert.sol";
 
 contract BurnableXcert is Xcert {
 
-  constructor(string _name,
-              string _symbol,
-              bytes4 _convention)
+  constructor(
+    string _name,
+    string _symbol,
+    bytes4 _convention
+  )
     Xcert(_name, _symbol, _convention)
     public
   {
@@ -17,7 +19,9 @@ contract BurnableXcert is Xcert {
    * @dev Burns a specified NFT.
    * @param _tokenId Id of the NFT we want to burn.
    */
-  function burn(uint256 _tokenId)
+  function burn(
+    uint256 _tokenId
+  )
     canOperate(_tokenId)
     validNFToken(_tokenId)
     external

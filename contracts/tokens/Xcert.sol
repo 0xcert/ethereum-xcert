@@ -122,7 +122,9 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
    * @dev Gets proof for NFT.
    * @param _tokenId Id of the NFT.
    */
-  function tokenProof(uint256 _tokenId)
+  function tokenProof(
+    uint256 _tokenId
+  )
     validNFToken(_tokenId)
     external
     view
@@ -172,7 +174,9 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
    * @dev Gets expiration date from config values.
    * @param _tokenId Id of the NFT we want to get expiration date of.
    */
-  function tokenExpirationDate(uint256 _tokenId)
+  function tokenExpirationDate(
+    uint256 _tokenId
+  )
     validNFToken(_tokenId)
     external
     returns(bytes32)
@@ -212,5 +216,4 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
     require(_target != address(0));
     return addressToMintAuthorized[_target];
   }
-
 }

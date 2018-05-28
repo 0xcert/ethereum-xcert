@@ -14,7 +14,11 @@ contract PausableXcert is Xcert {
    */
   bool public isPaused;
 
-  constructor(string _name, string _symbol, bytes4 _convention)
+  constructor(
+    string _name,
+    string _symbol,
+    bytes4 _convention
+  )
     Xcert(_name, _symbol, _convention)
     public
   {
@@ -26,7 +30,10 @@ contract PausableXcert is Xcert {
    * @dev Guarantees that the msg.sender is allowed to transfer NFT.
    * @param _tokenId ID of the NFT to transfer.
    */
-  modifier canTransfer(uint256 _tokenId) {
+  modifier canTransfer(
+    uint256 _tokenId
+  )
+  {
     address owner = idToOwner[_tokenId];
     require(!isPaused && (
       owner == msg.sender
@@ -41,7 +48,9 @@ contract PausableXcert is Xcert {
    * @dev Sets if NFTs are paused or not.
    * @param _isPaused Pause status.
    */
-  function setPause(bool _isPaused)
+  function setPause(
+    bool _isPaused
+  )
     external
     onlyOwner
   {

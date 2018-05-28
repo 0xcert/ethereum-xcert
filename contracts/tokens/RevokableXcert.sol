@@ -4,7 +4,11 @@ import "./Xcert.sol";
 
 contract RevokableXcert is Xcert {
 
-  constructor(string _name, string _symbol, bytes4 _convention)
+  constructor(
+    string _name,
+    string _symbol,
+    bytes4 _convention
+  )
     Xcert(_name, _symbol, _convention)
     public
   {
@@ -15,7 +19,9 @@ contract RevokableXcert is Xcert {
    * @dev Revokes a specified NFT.
    * @param _tokenId Id of the NFT we want to revoke.
    */
-  function revoke(uint256 _tokenId)
+  function revoke(
+    uint256 _tokenId
+  )
     validNFToken(_tokenId)
     onlyOwner
     external
