@@ -55,6 +55,7 @@
     "truffle": "^4.1.8"
   },
   "dependencies": {
-    "@0xcert/ethereum-erc721": "^1.1.1"
+    "@0xcert/ethereum-erc721": "^1.1.1",
+    "web3-utils": "^1.0.0-beta.34"
   }
 }

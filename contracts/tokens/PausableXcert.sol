@@ -4,29 +4,36 @@ import "./Xcert.sol";
 
 contract PausableXcert is Xcert {
 
-  /*
-   * @dev This emits when ability of beeing able to transfer NFTokens changes (paused/unpaused).
+  /**
+   * @dev This emits when ability of beeing able to transfer NFTs changes (paused/unpaused).
    */
   event IsPaused(bool _isPaused);
 
-  /*
-   * @dev Are NFTokens paused or not.
+  /**
+   * @dev Are NFT paused or not.
    */
   bool public isPaused;
 
-  constructor(string _name, string _symbol)
-    Xcert(_name, _symbol)
+  constructor(
+    string _name,
+    string _symbol,
+    bytes4 _conventionId
+  )
+    Xcert(_name, _symbol, _conventionId)
     public
   {
     supportedInterfaces[0xbedb86fb] = true; // PausableXcert
     isPaused = false;
   }
 
-  /*
-   * @dev Guarantees that the msg.sender is allowed to transfer NFToken.
-   * @param _tokenId ID of the NFToken to transfer.
+  /**
+   * @dev Guarantees that the msg.sender is allowed to transfer NFT.
+   * @param _tokenId ID of the NFT to transfer.
    */
-  modifier canTransfer(uint256 _tokenId) {
+  modifier canTransfer(
+    uint256 _tokenId
+  )
+  {
     address owner = idToOwner[_tokenId];
     require(!isPaused && (
       owner == msg.sender
@@ -37,11 +44,13 @@ contract PausableXcert is Xcert {
     _;
   }
 
-  /*
-   * @dev Sets if NFTokens are paused or not.
+  /**
+   * @dev Sets if NFTs are paused or not.
    * @param _isPaused Pause status.
    */
-  function setPause(bool _isPaused)
+  function setPause(
+    bool _isPaused
+  )
     external
     onlyOwner
   {
