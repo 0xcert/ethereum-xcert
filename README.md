@@ -140,7 +140,7 @@ $ npm run networks
 
 You can also check it on Ropsten [etherscan](https://ropsten.etherscan.io/address/0x339cb3e015d2eb2b7156f01dc960c79708f02d3b). Then in the truffle console (second terminal):
 
-```
+```js
 > const { abi } = require('./build/contracts/MyXcertToken.json');
 > const account0 = '0x8a1ed22651f4980c66579d6947059a97e09c61a7'; // your unlocked account
 > const account1 = '0x9062dd79d7e4273889b234f6b0c840ca43280af6'; // another account (you can create it)
@@ -153,35 +153,35 @@ You can also check it on Ropsten [etherscan](https://ropsten.etherscan.io/addres
 'MyXcertTest'
 
 // Minting Xcert tokens
-// "1" - Token ID
-// "http://www.random-art.org/img/large/199607.jpg" - Token URI; in this case to the picture generated from proof
-// "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865" - Token proof, calculated as sha256("1").
+// '1' - Token ID
+// 'http://www.random-art.org/img/large/199607.jpg' - Token URI; in this case to the picture generated from proof
+// '4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865' - Token proof, calculated as sha256('1').
 // [1, 2, 3, 4] - Random config options, first element is expiration date and thus currently set to Thu Jan  1 01:00:01 CET 1970 :).
-// ["a", "b", "c"] -Random convention options
+// ['a', 'b', 'c'] - Random convention options
  
-> MyXcertTokenInstance.mint(account1, "1", "http://www.random-art.org/img/large/199607.jpg", "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865", [1, 2, 3, 4], ["a", "b", "c"], {from: account0, gas: 2000000});
+> MyXcertTokenInstance.mint(account1, '1', 'http://www.random-art.org/img/large/199607.jpg', '4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865', [1, 2, 3, 4], ['a', 'b', 'c'], { from: account0, gas: 2000000 });
 '0xe68ea41c3f7333bfd1e121c903fac20e2a27324e6f130caea8b393d68c0294f2'
 
-> MyXcertTokenInstance.tokenProof("1");
+> MyXcertTokenInstance.tokenProof('1');
 '4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865'
 
-> MyXcertTokenInstance.tokenDataValue("1", 0);
-'0x6100000000000000000000000000000000000000000000000000000000000000' // This is "a"
+> MyXcertTokenInstance.tokenDataValue('1', 0);
+'0x6100000000000000000000000000000000000000000000000000000000000000' // This is 'a'
 
-> MyXcertTokenInstance.tokenExpirationDate("1")
+> MyXcertTokenInstance.tokenExpirationDate('1')
 '0x1000000000000000000000000000000000000000000000000000000000000000'
 
 // Set token data value at index 0 to date to Fri Jun  7 21:33:20 CEST 2024
-> MyXcertTokenInstance.setTokenDataValue("1", 0, "1717788800", {from: account0});
+> MyXcertTokenInstance.setTokenDataValue('1', 0, '1717788800', { from: account0 });
 '0x85bf59c60ee06b92600e16bde795fded18355b50481f3048d7b344abec2d57a5'
 
-> MyXcertTokenInstance.tokenDataValue("1", 0);
+> MyXcertTokenInstance.tokenDataValue('1', 0);
 '0x6663608000000000000000000000000000000000000000000000000000000000' // hex value of 1717788800
 
 > MyXcertTokenInstance.balanceOf(account1).toString();
 '1'
 
-> MyXcertTokenInstance.burn("1", {from: account1, gas: 200000});
+> MyXcertTokenInstance.burn('1', { from: account1, gas: 200000 });
 '0x2e5767595603e21a0e1ebdd6a7c3a05dd33b029e1b6e2594709580aa63fd290a'
 
 > MyXcertTokenInstance.balanceOf(account1).toString();
