@@ -4,14 +4,13 @@
   "description": "Xcert token standard implementation for the Ethereum blockchain.",
   "main": "truffle.js",
   "directories": {
-    "compile": "truffle compile",
+  },
+  "scripts": {
     "console": "truffle console",
+    "compile": "truffle compile",
     "lint": "eslint './**/*.js?(x)'",
     "migrate": "truffle migrate",
     "networks": "truffle networks",
-    "test": "truffle test"
-  },
-  "scripts": {
     "test": "truffle test"
   },
   "author": "0xcert",
