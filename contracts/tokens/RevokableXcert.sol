@@ -22,5 +22,8 @@ contract RevokableXcert is Xcert {
   {
     address tokenOwner = idToOwner[_tokenId];
     super._burn(tokenOwner, _tokenId);
+    delete data[_tokenId];
+    delete config[_tokenId];
+    delete idToProof[_tokenId];
   }
 }

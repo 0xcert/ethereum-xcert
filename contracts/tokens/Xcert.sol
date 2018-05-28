@@ -20,6 +20,21 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
   bytes4 private nftConvention;
 
   /*
+   * @dev Maps NFT ID to proof.
+   */
+  mapping (uint256 => string) internal idToProof;
+
+  /**
+   * @dev Map of protocol data.
+   */
+  mapping (uint256 => bytes32[]) internal config;
+
+  /**
+   * @dev Map of convention data.
+   */
+  mapping (uint256 => bytes32[]) internal data;
+
+  /*
    * @dev Maps authorized addresses to mint.
    */
   mapping (address => bool) internal addressToMintAuthorized;
@@ -59,28 +74,37 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
     public
   {
     nftConvention = _convention;
-    supportedInterfaces[0x355d09e9] = true; // Xcert
+    supportedInterfaces[0xe353dea7] = true; // Xcert
   }
 
-  /*
+  /**
    * @dev Mints a new NFT.
+   * @notice _dataKey and _dataValue length has to be the same.
    * @param _to The address that will own the minted NFT.
    * @param _id The NFT to be minted by the msg.sender.
+   * @param _uri An URI pointing to NFT metadata.
    * @param _proof Cryptographic asset imprint.
-   * @param _uri An URI pointing to NFT metadata (optional, max length 2083).
+   * @param _config Array of config values.
+   * @param _data Array of convention data values.
    */
   function mint(
     address _to,
     uint256 _id,
+    string _uri,
     string _proof,
-    string _uri
+    bytes32[] _config,
+    bytes32[] _data
   )
     external
     canMint()
   {
+    require(_config.length > 0);
     require(bytes(_proof).length > 0);
     super._mint(_to, _id);
     super._setTokenUri(_id, _uri);
+    idToProof[_id] = _proof;
+    config[_id] = _config;
+    data[_id] = _data;
   }
 
   /**
@@ -92,6 +116,68 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
     returns (bytes4 _convention)
   {
     _convention = nftConvention;
+  }
+
+  /**
+   * @dev Gets proof for NFT token.
+   * @param _tokenId Id of the NFT.
+   */
+  function tokenProof(uint256 _tokenId)
+    validNFToken(_tokenId)
+    external
+    view
+    returns(string)
+  {
+    return idToProof[_tokenId];
+  }
+
+  /**
+   * @dev Sets value for specified key.
+   * @param _tokenId Id of the NFT we want to set key value data.
+   * @param _index for which we want to set value.
+   * @param _value that we want to set.
+   */
+  function setTokenDataValue(
+    uint256 _tokenId,
+    uint256 _index,
+    bytes32 _value
+  )
+    onlyOwner
+    validNFToken(_tokenId)
+    external
+  {
+    require(_index < data[_tokenId].length);
+    data[_tokenId][_index] = _value;
+  }
+
+  /**
+   * @dev Gets value of key for specific NFT.
+   * @param _tokenId Id of the NFT we want to get value for key.
+   * @param _index for which we want to get value.
+   */
+  function tokenDataValue(
+    uint256 _tokenId,
+    uint256 _index
+  )
+    validNFToken(_tokenId)
+    public
+    view
+    returns(bytes32 value)
+  {
+    require(_index < data[_tokenId].length);
+    value = data[_tokenId][_index];
+  }
+
+  /*
+   * @dev Gets expiration date from config values.
+   * @param _tokenId Id of the NFT we want to get expiration date of.
+   */
+  function tokenExpirationDate(uint256 _tokenId)
+    validNFToken(_tokenId)
+    external
+    returns(bytes32)
+  {
+    return config[_tokenId][0];
   }
 
   /*
