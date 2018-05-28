@@ -41,7 +41,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
 
   /*
    * @dev Emits when an address is authorized to mint new NFT or the authorization is revoked.
-   * The _target can mint new NFTokens.
+   * The _target can mint new NFTs.
    * @param _target Address to set authorized state.
    * @patam _authorized True if the _target is authorised, false to revoke authorization.
    */
@@ -119,7 +119,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
   }
 
   /**
-   * @dev Gets proof for NFT token.
+   * @dev Gets proof for NFT.
    * @param _tokenId Id of the NFT.
    */
   function tokenProof(uint256 _tokenId)

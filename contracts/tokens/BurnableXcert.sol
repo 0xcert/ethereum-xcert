@@ -14,8 +14,8 @@ contract BurnableXcert is Xcert {
   }
 
   /*
-   * @dev Burns a specified NFToken.
-   * @param _tokenId Id of the NFToken we want to burn.
+   * @dev Burns a specified NFT.
+   * @param _tokenId Id of the NFT we want to burn.
    */
   function burn(uint256 _tokenId)
     canOperate(_tokenId)

@@ -17,14 +17,14 @@ contract('RevokableXcert', (accounts) => {
     xcert = await RevokableXcert.new('Foo', 'F', '0xa65de9e6');
   });
 
-  it('revokes NFToken id 1', async () => {
+  it('revokes NFT id 1', async () => {
     await xcert.mint(accounts[1], id1, 'url', proof, config, data);
     await xcert.revoke(id1, {from: accounts[0]});
     const count = await xcert.balanceOf(accounts[1]);
     assert.equal(count, 0);
   });
 
-  it('throws when trying to revoke an already revoked NFToken id 1', async () => {
+  it('throws when trying to revoke an already revoked NFT id 1', async () => {
     await xcert.mint(accounts[1], id1, 'url', proof, config, data);
     await xcert.revoke(id1, {from: accounts[0]});
     await assertRevert(xcert.revoke(id1, {from: accounts[0]}));

@@ -33,14 +33,14 @@ contract('PausableXcert', (accounts) => {
     await assertRevert(xcert.setPause(true, {from: accounts[1]}));
   });
 
-  it('succefully transfers when token is not paused', async () => {
+  it('succefully transfers when NFT is not paused', async () => {
     await xcert.mint(accounts[0], id1, 'url', proof, config, data);
     await xcert.transferFrom(accounts[0], accounts[1], id1);
     var owner = await xcert.ownerOf(id1);
     assert.equal(owner, accounts[1]);
   });
 
-  it('reverts trying to transfer when token is paused', async () => {
+  it('reverts trying to transfer when NFT is paused', async () => {
     await xcert.mint(accounts[0], id1, 'url', proof, config, data);
     await xcert.setPause(true);
     await assertRevert(xcert.transferFrom(accounts[0], accounts[1], id1));

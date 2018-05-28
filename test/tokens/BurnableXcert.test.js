@@ -17,14 +17,14 @@ contract('BurnableXcert', (accounts) => {
     xcert = await BurnableXcert.new('Foo', 'F', '0xa65de9e6');
   });
 
-  it('destroys NFToken id 1', async () => {
+  it('destroys NFT id 1', async () => {
     await xcert.mint(accounts[0], id1, 'url', proof, config, data);
     await xcert.burn(id1);
     const count = await xcert.balanceOf(accounts[0]);
     assert.equal(count, 0);
   });
 
-  it('throws when trying to destory an already destroyed NFToken id 1', async () => {
+  it('throws when trying to destory an already destroyed NFT id 1', async () => {
     await xcert.mint(accounts[0], id1, 'url', proof, config, data);
     await xcert.burn(id1);
     await assertRevert(xcert.burn(id1));
@@ -32,7 +32,7 @@ contract('BurnableXcert', (accounts) => {
     assert.equal(count, 0);
   });
 
-  it('throws when trying to destory NFToken you are not the owner of', async () => {
+  it('throws when trying to destory NFT you are not the owner of', async () => {
     await xcert.mint(accounts[1], id2, 'url2', proof, config, data);
     await assertRevert(xcert.burn(id2));
     const count = await xcert.balanceOf(accounts[1]);

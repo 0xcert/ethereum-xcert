@@ -29,24 +29,24 @@ contract('Xcert', (accounts) => {
     assert.equal(count.toNumber(), 1);
   });
 
-  it('throws when trying to mint 2 NFTokens with the same claim', async () => {
+  it('throws when trying to mint 2 NFTs with the same claim', async () => {
     await xcert.mint(accounts[0], id2, 'url2', proof, config, data);
     await assertRevert(xcert.mint(accounts[0], id2, 'url2', proof, config, data));
   });
 
-  it('throws trying to mint NFToken with empty claim', async () => {
+  it('throws trying to mint NFT with empty claim', async () => {
     await assertRevert(xcert.mint(accounts[0], '', '', proof, config, data));
   });
 
-  it('throws trying to mint NFToken with empty config', async () => {
+  it('throws trying to mint NFT with empty config', async () => {
     await assertRevert(xcert.mint(accounts[0], id3, 'url3', proof, [], data));
   });
 
-  it('throws when trying to mint NFToken to 0x0 address ', async () => {
+  it('throws when trying to mint NFT to 0x0 address ', async () => {
     await assertRevert(xcert.mint('0', id3, 'url3', proof, config, data));
   });
 
-  it('throws when trying to mint NFToken from non owner ot authorized address', async () => {
+  it('throws when trying to mint NFT from non owner ot authorized address', async () => {
     await assertRevert(xcert.mint('0', id3, 'url3', proof, config, data, { from: accounts[1] }));
   });
 
@@ -64,7 +64,7 @@ contract('Xcert', (accounts) => {
     await assertRevert(xcert.setMintAuthorizedAddress('0', true));
   });
 
-  it('correctly mints new NFToken by authorized address', async () => {
+  it('correctly mints new NFT by authorized address', async () => {
     var authorized = accounts[1];
     var recipient = accounts[2];
     await xcert.setMintAuthorizedAddress(authorized, true);
@@ -82,24 +82,24 @@ contract('Xcert', (accounts) => {
     await assertRevert(xcert.mint(recipient, id3, 'url3', proof, config, data, {from: authorized}));
   });
 
-  it('finds the correct amount of NFTokens owned by account', async () => {
+  it('finds the correct amount of NFTs owned by account', async () => {
     await xcert.mint(accounts[1], id2, 'url2', proof, config, data);
     await xcert.mint(accounts[1], id3, 'url3', proof, config, data);
     const count = await xcert.balanceOf(accounts[1]);
     assert.equal(count.toNumber(), 2);
   });
 
-  it('throws when trying to get count of NFTokens owned by 0x0 address', async () => {
+  it('throws when trying to get count of NFTs owned by 0x0 address', async () => {
     await assertRevert(xcert.balanceOf('0'));
   });
 
-  it('finds the correct owner of NFToken id', async () => {
+  it('finds the correct owner of NFT id', async () => {
     await xcert.mint(accounts[1], id2, 'url2', proof, config, data);
     const address = await xcert.ownerOf(id2);
     assert.equal(address, accounts[1]);
   });
 
-  it('throws when trying to find owner od none existant NFToken id', async () => {
+  it('throws when trying to find owner od none existant NFT id', async () => {
     await assertRevert(xcert.ownerOf(id4));
   });
 
@@ -118,12 +118,12 @@ contract('Xcert', (accounts) => {
     assert.equal(address, 0);
   });
 
-  it('throws when trying to get approval of none existant NFToken id', async () => {
+  it('throws when trying to get approval of none existant NFT id', async () => {
     await assertRevert(xcert.getApproved(id4));
   });
 
 
-  it('throws when trying to approve NFToken id that we are not the owner of', async () => {
+  it('throws when trying to approve NFT id that we are not the owner of', async () => {
     await xcert.mint(accounts[1], id2, 'url2', proof, config, data);
     await assertRevert(xcert.approve(accounts[1], id2));
     const address = await xcert.getApproved(id2);
@@ -151,7 +151,7 @@ contract('Xcert', (accounts) => {
     await assertRevert(xcert.setApprovalForAll(0, true));
   });
 
-  it('corectly transfers NFToken from owner', async () => {
+  it('corectly transfers NFT from owner', async () => {
     var sender = accounts[1];
     var recipient = accounts[2];
 
@@ -189,7 +189,7 @@ contract('Xcert', (accounts) => {
     assert.equal(ownerOfId2, recipient);
   });
 
-  it('corectly transfers NFToken as operator', async () => {
+  it('corectly transfers NFT as operator', async () => {
     var sender = accounts[1];
     var recipient = accounts[2];
     var owner = accounts[3];
@@ -209,7 +209,7 @@ contract('Xcert', (accounts) => {
     assert.equal(ownerOfId2, recipient);
   });
 
-  it('throws when trying to transfer NFToken as an address that is not owner, approved or operator', async () => {
+  it('throws when trying to transfer NFT as an address that is not owner, approved or operator', async () => {
     var sender = accounts[1];
     var recipient = accounts[2];
     var owner = accounts[3];
@@ -218,7 +218,7 @@ contract('Xcert', (accounts) => {
     await assertRevert(xcert.transferFrom(owner, recipient, id2, {from: sender}));
   });
 
-  it('throws when trying to transfer NFToken to a zero address', async () => {
+  it('throws when trying to transfer NFT to a zero address', async () => {
     var owner = accounts[3];
 
     await xcert.mint(owner, id2, 'url2', proof, config, data);
@@ -233,7 +233,7 @@ contract('Xcert', (accounts) => {
     await assertRevert(xcert.transferFrom(owner, 0, id3, {from: owner}));
   });
 
-  it('corectly safe transfers NFToken from owner', async () => {
+  it('corectly safe transfers NFT from owner', async () => {
     var sender = accounts[1];
     var recipient = accounts[2];
 
@@ -251,7 +251,7 @@ contract('Xcert', (accounts) => {
     assert.equal(ownerOfId2, recipient);
   });
 
-  it('throws when trying to safe transfers NFToken from owner to a smart contract', async () => {
+  it('throws when trying to safe transfers NFT from owner to a smart contract', async () => {
     var sender = accounts[1];
     var recipient = xcert.address;
 
@@ -259,7 +259,7 @@ contract('Xcert', (accounts) => {
     await assertRevert(xcert.safeTransferFrom(sender, recipient, id2, {from: sender}));
   });
 
-  it('corectly safe transfers NFToken from owner to smart contract that can recieve NFTokens', async () => {
+  it('corectly safe transfers NFT from owner to smart contract that can recieve NFTs', async () => {
     var sender = accounts[1];
     var tokenReceiverMock = await TokenReceiverMock.new();
     var recipient = tokenReceiverMock.address;
@@ -288,17 +288,17 @@ contract('Xcert', (accounts) => {
     assert.equal(symbol, 'F');
   });
 
-  it('returns the correct NFToken id 2 url', async () => {
+  it('returns the correct NFT id 2 url', async () => {
     await xcert.mint(accounts[1], id2, 'url2', proof, config, data);
     const tokenURI = await xcert.tokenURI(id2);
     assert.equal(tokenURI, 'url2');
   });
 
-  it('throws when trying to get uri of none existant NFToken id', async () => {
+  it('throws when trying to get uri of none existant NFT id', async () => {
     await assertRevert(xcert.tokenURI(id4));
   });
 
-  it('returns the correct proof for NFToken id', async () => {
+  it('returns the correct proof for NFT id', async () => {
     await xcert.mint(accounts[1], id2, 'url2', proof, config, data);
     let tokenProof = await xcert.tokenProof(id2);
     assert.equal(proof, tokenProof);

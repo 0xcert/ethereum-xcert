@@ -12,8 +12,8 @@ contract RevokableXcert is Xcert {
   }
 
   /*
-   * @dev Revokes a specified NFToken.
-   * @param _tokenId Id of the NFToken we want to revoke.
+   * @dev Revokes a specified NFT.
+   * @param _tokenId Id of the NFT we want to revoke.
    */
   function revoke(uint256 _tokenId)
     validNFToken(_tokenId)

@@ -39,5 +39,4 @@ contract('Selector', (accounts) => {
     var supports = await xcert.supportsInterface(bytes);
     assert.equal(supports, true);
   });
-
 });

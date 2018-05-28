@@ -5,12 +5,12 @@ import "./Xcert.sol";
 contract PausableXcert is Xcert {
 
   /*
-   * @dev This emits when ability of beeing able to transfer NFTokens changes (paused/unpaused).
+   * @dev This emits when ability of beeing able to transfer NFTs changes (paused/unpaused).
    */
   event IsPaused(bool _isPaused);
 
   /*
-   * @dev Are NFTokens paused or not.
+   * @dev Are NFT paused or not.
    */
   bool public isPaused;
 
@@ -23,8 +23,8 @@ contract PausableXcert is Xcert {
   }
 
   /*
-   * @dev Guarantees that the msg.sender is allowed to transfer NFToken.
-   * @param _tokenId ID of the NFToken to transfer.
+   * @dev Guarantees that the msg.sender is allowed to transfer NFT.
+   * @param _tokenId ID of the NFT to transfer.
    */
   modifier canTransfer(uint256 _tokenId) {
     address owner = idToOwner[_tokenId];
@@ -38,7 +38,7 @@ contract PausableXcert is Xcert {
   }
 
   /*
-   * @dev Sets if NFTokens are paused or not.
+   * @dev Sets if NFTs are paused or not.
    * @param _isPaused Pause status.
    */
   function setPause(bool _isPaused)

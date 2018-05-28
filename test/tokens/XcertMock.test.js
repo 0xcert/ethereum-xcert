@@ -18,7 +18,7 @@ contract('XcertMock', (accounts) => {
     await xcert.mint(accounts[0], id1, 'url', proof, config, data);
   });
 
-  it('destroys NFToken id 1', async () => {
+  it('destroys NFT id 1', async () => {
     await xcert.burn(id1);
     const count = await xcert.balanceOf(accounts[0]);
     assert.equal(count, 0);
@@ -29,7 +29,7 @@ contract('XcertMock', (accounts) => {
     await assertRevert(xcert.transferFrom(accounts[0], accounts[1], id1));
   });
 
-  it('revokes NFToken id 1', async () => {
+  it('revokes NFT id 1', async () => {
     await xcert.revoke(id1, {from: accounts[0]});
     const count = await xcert.balanceOf(accounts[0]);
     assert.equal(count, 0);
