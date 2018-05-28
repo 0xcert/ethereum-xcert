@@ -179,6 +179,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
   )
     validNFToken(_tokenId)
     external
+    view
     returns(bytes32)
   {
     return config[_tokenId][0];

@@ -306,7 +306,7 @@ contract('Xcert', (accounts) => {
 
   it('correctly checks expiration date for NFT', async () => {
     await xcert.mint(accounts[1], id2, 'url2', proof, config, data);
-    let expirationDate = await xcert.tokenExpirationDate.call(id2);
+    let expirationDate = await xcert.tokenExpirationDate(id2);
     assert.equal(expirationDate, config[0]);
   })
 
