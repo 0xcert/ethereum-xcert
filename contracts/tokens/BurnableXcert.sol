@@ -13,7 +13,7 @@ contract BurnableXcert is Xcert {
     supportedInterfaces[0x42966c68] = true; // BurnableXcert
   }
 
-  /*
+  /**
    * @dev Burns a specified NFT.
    * @param _tokenId Id of the NFT we want to burn.
    */

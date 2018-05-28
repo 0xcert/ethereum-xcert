@@ -11,7 +11,7 @@ contract RevokableXcert is Xcert {
     supportedInterfaces[0x20c5429b] = true; // RevokableXcert
   }
 
-  /*
+  /**
    * @dev Revokes a specified NFT.
    * @param _tokenId Id of the NFT we want to revoke.
    */

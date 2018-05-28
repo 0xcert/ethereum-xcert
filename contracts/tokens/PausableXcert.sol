@@ -4,12 +4,12 @@ import "./Xcert.sol";
 
 contract PausableXcert is Xcert {
 
-  /*
+  /**
    * @dev This emits when ability of beeing able to transfer NFTs changes (paused/unpaused).
    */
   event IsPaused(bool _isPaused);
 
-  /*
+  /**
    * @dev Are NFT paused or not.
    */
   bool public isPaused;
@@ -22,7 +22,7 @@ contract PausableXcert is Xcert {
     isPaused = false;
   }
 
-  /*
+  /**
    * @dev Guarantees that the msg.sender is allowed to transfer NFT.
    * @param _tokenId ID of the NFT to transfer.
    */
@@ -37,7 +37,7 @@ contract PausableXcert is Xcert {
     _;
   }
 
-  /*
+  /**
    * @dev Sets if NFTs are paused or not.
    * @param _isPaused Pause status.
    */

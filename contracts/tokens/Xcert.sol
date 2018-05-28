@@ -6,7 +6,7 @@ import "../../node_modules/@0xcert/ethereum-erc721/contracts/tokens/NFTokenMetad
 import "../../node_modules/@0xcert/ethereum-erc721/contracts/tokens/NFTokenEnumerable.sol";
 import "../../node_modules/@0xcert/ethereum-erc721/contracts/utils/AddressUtils.sol";
 
-/*
+/**
  * @dev Xcert implementation.
  */
 contract Xcert is NFTokenEnumerable, NFTokenMetadata {
@@ -19,7 +19,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
    */
   bytes4 private nftConvention;
 
-  /*
+  /**
    * @dev Maps NFT ID to proof.
    */
   mapping (uint256 => string) internal idToProof;
@@ -34,23 +34,23 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
    */
   mapping (uint256 => bytes32[]) internal data;
 
-  /*
+  /**
    * @dev Maps authorized addresses to mint.
    */
   mapping (address => bool) internal addressToMintAuthorized;
 
-  /*
+  /**
    * @dev Emits when an address is authorized to mint new NFT or the authorization is revoked.
    * The _target can mint new NFTs.
    * @param _target Address to set authorized state.
-   * @patam _authorized True if the _target is authorised, false to revoke authorization.
+   * @param _authorized True if the _target is authorised, false to revoke authorization.
    */
   event MintAuthorizedAddress(
     address indexed _target,
     bool _authorized
   );
 
-  /*
+  /**
    * @dev Guarantees that msg.sender is allowed to mint a new NFT.
    */
   modifier canMint() {
@@ -58,7 +58,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
     _;
   }
 
-  /*
+  /**
    * @dev Contract constructor.
    * @param _name A descriptive name for a collection of NFTs.
    * @param _symbol An abbreviated name for NFT.
@@ -168,7 +168,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
     value = data[_tokenId][_index];
   }
 
-  /*
+  /**
    * @dev Gets expiration date from config values.
    * @param _tokenId Id of the NFT we want to get expiration date of.
    */
@@ -180,10 +180,10 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
     return config[_tokenId][0];
   }
 
-  /*
+  /**
    * @dev Sets authorised address for minting.
    * @param _target Address to set authorized state.
-   * @patam _authorized True if the _target is authorised, false to revoke authorization.
+   * @param _authorized True if the _target is authorised, false to revoke authorization.
    */
   function setMintAuthorizedAddress(
     address _target,
@@ -197,7 +197,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
     emit MintAuthorizedAddress(_target, _authorized);
   }
 
-  /*
+  /**
    * @dev Sets mint authorised address.
    * @param _target Address for which we want to check if it is authorized.
    * @return Is authorized or not.
