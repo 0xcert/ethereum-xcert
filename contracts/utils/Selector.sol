@@ -14,7 +14,7 @@ contract Selector {
          ^ i.tokenProof.selector
          ^ i.setTokenDataValue.selector
          ^ i.tokenDataValue.selector
-         ^ i.tokenExpirationDate.selector
+         ^ i.tokenExpirationTime.selector
          ^ i.setMintAuthorizedAddress.selector
          ^ i.isMintAuthorizedAddress.selector;
     }
