@@ -2,6 +2,9 @@ pragma solidity ^0.4.23;
 
 import "../../contracts/tokens/Xcert.sol";
 
+/**
+ * @dev This is an example contract implementation of Xcert.
+ */
 contract XcertMock is Xcert {
 
   /**

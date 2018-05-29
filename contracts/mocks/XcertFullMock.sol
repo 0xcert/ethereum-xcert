@@ -4,6 +4,10 @@ import "../../contracts/tokens/BurnableXcert.sol";
 import "../../contracts/tokens/PausableXcert.sol";
 import "../../contracts/tokens/RevokableXcert.sol";
 
+/**
+ * @dev This is an example contract implementation of Xcert with all available extension: burnable,
+ * pausable and revokable.
+ */
 contract XcertFullMock is BurnableXcert, PausableXcert, RevokableXcert {
 
   constructor(

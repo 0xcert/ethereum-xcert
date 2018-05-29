@@ -2,6 +2,9 @@ pragma solidity ^0.4.23;
 
 import "../../contracts/tokens/PausableXcert.sol";
 
+/**
+ * @dev This is an example contract implementation of PausableXcert.
+ */
 contract PausableXcertMock is PausableXcert {
 
   /**

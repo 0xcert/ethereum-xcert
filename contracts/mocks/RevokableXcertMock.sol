@@ -2,6 +2,9 @@ pragma solidity ^0.4.23;
 
 import "../../contracts/tokens/RevokableXcert.sol";
 
+/**
+ * @dev This is an example contract implementation of RevokableXcert.
+ */
 contract RevokableXcertMock is RevokableXcert {
 
   /**

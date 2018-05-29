@@ -2,6 +2,9 @@ pragma solidity ^0.4.23;
 
 import "../../contracts/tokens/BurnableXcert.sol";
 
+/**
+ * @dev This is an example contract implementation of BurnableXcert.
+ */
 contract BurnableXcertMock is BurnableXcert {
 
   /**
@@ -22,5 +25,4 @@ contract BurnableXcertMock is BurnableXcert {
     nftSymbol = _symbol;
     nftConventionId = _conventionId;
   }
-
 }
