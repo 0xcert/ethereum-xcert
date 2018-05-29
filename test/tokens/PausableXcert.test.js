@@ -18,10 +18,10 @@ contract('PausableXcert', (accounts) => {
   });
 
   it('correctly sets pause state', async () => {
-    var { logs } = await xcert.setPause(true);
-    let isPausedEvent = logs.find(e => e.event === 'IsPaused');
+    const { logs } = await xcert.setPause(true);
+    const isPausedEvent = logs.find(e => e.event === 'IsPaused');
     assert.notEqual(isPausedEvent, undefined);
-    var pauseState = await xcert.isPaused();
+    const pauseState = await xcert.isPaused();
     assert.equal(pauseState, true);
   });
 
@@ -36,7 +36,7 @@ contract('PausableXcert', (accounts) => {
   it('succefully transfers when NFT is not paused', async () => {
     await xcert.mint(accounts[0], id1, 'url', proof, config, data);
     await xcert.transferFrom(accounts[0], accounts[1], id1);
-    var owner = await xcert.ownerOf(id1);
+    const owner = await xcert.ownerOf(id1);
     assert.equal(owner, accounts[1]);
   });
 

@@ -51,8 +51,8 @@ contract('Xcert', (accounts) => {
   });
 
   it('correctly authotizes address for minting', async () => {
-    var { logs } = await xcert.setMintAuthorizedAddress(accounts[1], true);
-    let mintAuthorizedAddressEvent = logs.find(e => e.event === 'MintAuthorizedAddress');
+    const { logs } = await xcert.setMintAuthorizedAddress(accounts[1], true);
+    const mintAuthorizedAddressEvent = logs.find(e => e.event === 'MintAuthorizedAddress');
     assert.notEqual(mintAuthorizedAddressEvent, undefined);
   });
 
@@ -65,8 +65,8 @@ contract('Xcert', (accounts) => {
   });
 
   it('correctly mints new NFT by authorized address', async () => {
-    var authorized = accounts[1];
-    var recipient = accounts[2];
+    const authorized = accounts[1];
+    const recipient = accounts[2];
     await xcert.setMintAuthorizedAddress(authorized, true);
     await xcert.mint(recipient, id3, 'url3', proof, config, data, {from: authorized});
 
@@ -75,8 +75,8 @@ contract('Xcert', (accounts) => {
   });
 
   it('throws trying to ming from address which authorization got revoked', async () => {
-    var authorized = accounts[1];
-    var recipient = accounts[2];
+    const authorized = accounts[1];
+    const recipient = accounts[2];
     await xcert.setMintAuthorizedAddress(authorized, true);
     await xcert.setMintAuthorizedAddress(authorized, false);
     await assertRevert(xcert.mint(recipient, id3, 'url3', proof, config, data, {from: authorized}));
@@ -131,11 +131,11 @@ contract('Xcert', (accounts) => {
   });
 
   it('correctly sets an operator', async () => {
-    var { logs } = await xcert.setApprovalForAll(accounts[6], true);
-    let approvalForAllEvent = logs.find(e => e.event === 'ApprovalForAll');
+    const { logs } = await xcert.setApprovalForAll(accounts[6], true);
+    const approvalForAllEvent = logs.find(e => e.event === 'ApprovalForAll');
     assert.notEqual(approvalForAllEvent, undefined);
 
-    var isApprovedForAll = await xcert.isApprovedForAll(accounts[0], accounts[6]);
+    const isApprovedForAll = await xcert.isApprovedForAll(accounts[0], accounts[6]);
     assert.equal(isApprovedForAll, true);
   });
 
@@ -143,7 +143,7 @@ contract('Xcert', (accounts) => {
     await xcert.setApprovalForAll(accounts[6], true);
     await xcert.setApprovalForAll(accounts[6], false);
 
-    var isApprovedForAll = await xcert.isApprovedForAll(accounts[0], accounts[6]);
+    const isApprovedForAll = await xcert.isApprovedForAll(accounts[0], accounts[6]);
     assert.equal(isApprovedForAll, false);
   });
 
@@ -152,17 +152,17 @@ contract('Xcert', (accounts) => {
   });
 
   it('correctly transfers NFT from owner', async () => {
-    var sender = accounts[1];
-    var recipient = accounts[2];
+    const sender = accounts[1];
+    const recipient = accounts[2];
 
     await xcert.mint(sender, id2, 'url2', proof, config, data);
-    var { logs } = await xcert.transferFrom(sender, recipient, id2, {from: sender});
-    let transferEvent = logs.find(e => e.event === 'Transfer');
+    const { logs } = await xcert.transferFrom(sender, recipient, id2, {from: sender});
+    const transferEvent = logs.find(e => e.event === 'Transfer');
     assert.notEqual(transferEvent, undefined);
 
-    var senderBalance = await xcert.balanceOf(sender);
-    var recipientBalance = await xcert.balanceOf(recipient);
-    var ownerOfId2 =  await xcert.ownerOf(id2);
+    const senderBalance = await xcert.balanceOf(sender);
+    const recipientBalance = await xcert.balanceOf(recipient);
+    const ownerOfId2 =  await xcert.ownerOf(id2);
 
     assert.equal(senderBalance, 0);
     assert.equal(recipientBalance, 1);
@@ -170,19 +170,19 @@ contract('Xcert', (accounts) => {
   });
 
   it('correctly transfers xcert from approved address', async () => {
-    var sender = accounts[1];
-    var recipient = accounts[2];
-    var owner = accounts[3];
+    const sender = accounts[1];
+    const recipient = accounts[2];
+    const owner = accounts[3];
 
     await xcert.mint(owner, id2, 'url2', proof, config, data);
     await xcert.approve(sender, id2, {from: owner});
-    var { logs } = await xcert.transferFrom(owner, recipient, id2, {from: sender});
-    let transferEvent = logs.find(e => e.event === 'Transfer');
+    const { logs } = await xcert.transferFrom(owner, recipient, id2, {from: sender});
+    const transferEvent = logs.find(e => e.event === 'Transfer');
     assert.notEqual(transferEvent, undefined);
 
-    var ownerBalance = await xcert.balanceOf(owner);
-    var recipientBalance = await xcert.balanceOf(recipient);
-    var ownerOfId2 =  await xcert.ownerOf(id2);
+    const ownerBalance = await xcert.balanceOf(owner);
+    const recipientBalance = await xcert.balanceOf(recipient);
+    const ownerOfId2 =  await xcert.ownerOf(id2);
 
     assert.equal(ownerBalance, 0);
     assert.equal(recipientBalance, 1);
@@ -190,19 +190,19 @@ contract('Xcert', (accounts) => {
   });
 
   it('correctly transfers NFT as operator', async () => {
-    var sender = accounts[1];
-    var recipient = accounts[2];
-    var owner = accounts[3];
+    const sender = accounts[1];
+    const recipient = accounts[2];
+    const owner = accounts[3];
 
     await xcert.mint(owner, id2, 'url2', proof, config, data);
     await xcert.setApprovalForAll(sender, true, {from: owner});
-    var { logs } = await xcert.transferFrom(owner, recipient, id2, {from: sender});
-    let transferEvent = logs.find(e => e.event === 'Transfer');
+    const { logs } = await xcert.transferFrom(owner, recipient, id2, {from: sender});
+    const transferEvent = logs.find(e => e.event === 'Transfer');
     assert.notEqual(transferEvent, undefined);
 
-    var ownerBalance = await xcert.balanceOf(owner);
-    var recipientBalance = await xcert.balanceOf(recipient);
-    var ownerOfId2 =  await xcert.ownerOf(id2);
+    const ownerBalance = await xcert.balanceOf(owner);
+    const recipientBalance = await xcert.balanceOf(recipient);
+    const ownerOfId2 =  await xcert.ownerOf(id2);
 
     assert.equal(ownerBalance, 0);
     assert.equal(recipientBalance, 1);
@@ -210,41 +210,41 @@ contract('Xcert', (accounts) => {
   });
 
   it('throws when trying to transfer NFT as an address that is not owner, approved or operator', async () => {
-    var sender = accounts[1];
-    var recipient = accounts[2];
-    var owner = accounts[3];
+    const sender = accounts[1];
+    const recipient = accounts[2];
+    const owner = accounts[3];
 
     await xcert.mint(owner, id2, 'url2', proof, config, data);
     await assertRevert(xcert.transferFrom(owner, recipient, id2, {from: sender}));
   });
 
   it('throws when trying to transfer NFT to a zero address', async () => {
-    var owner = accounts[3];
+    const owner = accounts[3];
 
     await xcert.mint(owner, id2, 'url2', proof, config, data);
     await assertRevert(xcert.transferFrom(owner, 0, id2, {from: owner}));
   });
 
   it('throws when trying to transfer a non valid xcert', async () => {
-    var owner = accounts[3];
-    var recipient = accounts[2];
+    const owner = accounts[3];
+    const recipient = accounts[2];
 
     await xcert.mint(owner, id2, 'url2', proof, config, data);
     await assertRevert(xcert.transferFrom(owner, 0, id3, {from: owner}));
   });
 
   it('correctly safe transfers NFT from owner', async () => {
-    var sender = accounts[1];
-    var recipient = accounts[2];
+    const sender = accounts[1];
+    const recipient = accounts[2];
 
     await xcert.mint(sender, id2, 'url2', proof, config, data);
-    var { logs } = await xcert.safeTransferFrom(sender, recipient, id2, {from: sender});
-    let transferEvent = logs.find(e => e.event === 'Transfer');
+    const { logs } = await xcert.safeTransferFrom(sender, recipient, id2, {from: sender});
+    const transferEvent = logs.find(e => e.event === 'Transfer');
     assert.notEqual(transferEvent, undefined);
 
-    var senderBalance = await xcert.balanceOf(sender);
-    var recipientBalance = await xcert.balanceOf(recipient);
-    var ownerOfId2 =  await xcert.ownerOf(id2);
+    const senderBalance = await xcert.balanceOf(sender);
+    const recipientBalance = await xcert.balanceOf(recipient);
+    const ownerOfId2 =  await xcert.ownerOf(id2);
 
     assert.equal(senderBalance, 0);
     assert.equal(recipientBalance, 1);
@@ -252,26 +252,26 @@ contract('Xcert', (accounts) => {
   });
 
   it('throws when trying to safe transfers NFT from owner to a smart contract', async () => {
-    var sender = accounts[1];
-    var recipient = xcert.address;
+    const sender = accounts[1];
+    const recipient = xcert.address;
 
     await xcert.mint(sender, id2, 'url2', proof, config, data);
     await assertRevert(xcert.safeTransferFrom(sender, recipient, id2, {from: sender}));
   });
 
   it('correctly safe transfers NFT from owner to smart contract that can recieve NFTs', async () => {
-    var sender = accounts[1];
-    var tokenReceiverMock = await TokenReceiverMock.new();
-    var recipient = tokenReceiverMock.address;
+    const sender = accounts[1];
+    const tokenReceiverMock = await TokenReceiverMock.new();
+    const recipient = tokenReceiverMock.address;
 
     await xcert.mint(sender, id2, 'url2', proof, config, data);
-    var { logs } = await xcert.safeTransferFrom(sender, recipient, id2, {from: sender});
-    let transferEvent = logs.find(e => e.event === 'Transfer');
+    const { logs } = await xcert.safeTransferFrom(sender, recipient, id2, {from: sender});
+    const transferEvent = logs.find(e => e.event === 'Transfer');
     assert.notEqual(transferEvent, undefined);
 
-    var senderBalance = await xcert.balanceOf(sender);
-    var recipientBalance = await xcert.balanceOf(recipient);
-    var ownerOfId2 =  await xcert.ownerOf(id2);
+    const senderBalance = await xcert.balanceOf(sender);
+    const recipientBalance = await xcert.balanceOf(recipient);
+    const ownerOfId2 =  await xcert.ownerOf(id2);
 
     assert.equal(senderBalance, 0);
     assert.equal(recipientBalance, 1);
@@ -306,13 +306,13 @@ contract('Xcert', (accounts) => {
 
   it('correctly checks expiration time for NFT', async () => {
     await xcert.mint(accounts[1], id2, 'url2', proof, config, data);
-    let expirationDate = await xcert.tokenExpirationTime(id2);
-    assert.equal(expirationDate, config[0]);
+    const expirationTime = await xcert.tokenExpirationTime(id2);
+    assert.equal(expirationTime, config[0]);
   })
 
   it('correctly checks data NFT', async () => {
     await xcert.mint(accounts[1], id2, 'url2', proof, config, [web3Util.padLeft(web3Util.numberToHex(3), 64)]);
-    let stage = await xcert.tokenDataValue.call(id2, 0);
+    const stage = await xcert.tokenDataValue.call(id2, 0);
     assert.equal(stage, 3);
   })
 
@@ -324,7 +324,7 @@ contract('Xcert', (accounts) => {
   it('correctly changes NFT data', async () => {
     await xcert.mint(accounts[1], id2, 'url2', proof, config, [web3Util.padLeft(web3Util.numberToHex(3), 64)]);
     await xcert.setTokenDataValue(id2, 0, web3Util.padLeft(web3Util.numberToHex(5), 64));
-    let stage = await xcert.tokenDataValue.call(id2, 0);
+    const stage = await xcert.tokenDataValue.call(id2, 0);
     assert.equal(stage, 5);
   })
 
