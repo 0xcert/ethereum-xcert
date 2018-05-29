@@ -66,7 +66,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
   constructor()
     public
   {
-    supportedInterfaces[0x11827de5] = true; // Xcert
+    supportedInterfaces[0x54565ba0] = true; // Xcert
   }
 
   /**
@@ -123,25 +123,6 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
     returns(string)
   {
     return idToProof[_tokenId];
-  }
-
-  /**
-   * @dev Modifies convention data by setting a new value for a given index field.
-   * @param _tokenId Id of the NFT we want to set key value data.
-   * @param _index for which we want to set value.
-   * @param _value that we want to set.
-   */
-  function setTokenDataValue(
-    uint256 _tokenId,
-    uint256 _index,
-    bytes32 _value
-  )
-    onlyOwner
-    validNFToken(_tokenId)
-    external
-  {
-    require(_index < data[_tokenId].length);
-    data[_tokenId][_index] = _value;
   }
 
   /**
