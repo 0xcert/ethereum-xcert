@@ -1,6 +1,8 @@
-# ![Build Status](https://travis-ci.org/0xcert/ethereum-xcert.svg?branch=master)&nbsp;[![NPM Version](https://badge.fury.io/js/@0xcert%2Fethereum-xcert.svg)](https://badge.fury.io/js/0xcert%2Fethereum-xcert)&nbsp;[![Dependencies Status](https://david-dm.org/0xcert/ethereum-xcert.svg)](https://david-dm.org/0xcert/ethereum-xcert)&nbsp;[![Bug Bounty](https://img.shields.io/badge/bounty-pending-2930e8.svg)](https://github.com/0xcert/ethereum-xcert/issues)
+<img src="assets/cover.png" />
 
-# Xcert Token
+![Build Status](https://travis-ci.org/0xcert/ethereum-xcert.svg?branch=master)&nbsp;[![NPM Version](https://badge.fury.io/js/@0xcert%2Fethereum-xcert.svg)](https://badge.fury.io/js/0xcert%2Fethereum-xcert)&nbsp;[![Dependencies Status](https://david-dm.org/0xcert/ethereum-xcert.svg)](https://david-dm.org/0xcert/ethereum-xcert)&nbsp;[![Bug Bounty](https://img.shields.io/badge/bounty-pending-2930e8.svg)](https://github.com/0xcert/ethereum-xcert/issues)
+
+> Xcert token standard implementation for the Ethereum blockchain.
 
 This is the official implementation of the [Xcert](https://github.com/0xcert/0xcert/blob/981f05ffd366d085967bf99a6d24613e63e1c88e/specs/2.md) token for the Ethereum blockchain. This is an open source project build with [Truffle](http://truffleframework.com) framework.
 
