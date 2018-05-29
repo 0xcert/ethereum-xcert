@@ -1,7 +1,7 @@
-const Xcert = artifacts.require('Xcert');
-const BurnableXcert = artifacts.require('BurnableXcert');
-const PausableXcert = artifacts.require('PausableXcert');
-const RevokableXcert = artifacts.require('RevokableXcert');
+const Xcert = artifacts.require('XcertMock');
+const BurnableXcert = artifacts.require('BurnableXcertMock');
+const PausableXcert = artifacts.require('PausableXcertMock');
+const RevokableXcert = artifacts.require('RevokableXcertMock');
 const Selector = artifacts.require('Selector');
 
 contract('Selector', (accounts) => {

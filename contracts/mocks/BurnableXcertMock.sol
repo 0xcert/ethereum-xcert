@@ -1,11 +1,11 @@
 pragma solidity ^0.4.23;
 
-import "../../contracts/tokens/Xcert.sol";
+import "../../contracts/tokens/BurnableXcert.sol";
 
 /**
- * @dev This is an example contract implementation of Xcert.
+ * @dev This is an example contract implementation of BurnableXcert.
  */
-contract XcertMock is Xcert {
+contract BurnableXcertMock is BurnableXcert {
 
   /**
    * @dev Contract constructor.
