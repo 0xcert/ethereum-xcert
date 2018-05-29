@@ -3,7 +3,7 @@ pragma solidity ^0.4.23;
 import "../../contracts/tokens/RevokableXcert.sol";
 
 /**
- * @dev This is an example contract implementation of RevokableXcert.
+ * @dev This is an example implementation of the RevokableXcert smart contract.
  */
 contract RevokableXcertMock is RevokableXcert {
 
@@ -25,4 +25,5 @@ contract RevokableXcertMock is RevokableXcert {
     nftSymbol = _symbol;
     nftConventionId = _conventionId;
   }
+
 }

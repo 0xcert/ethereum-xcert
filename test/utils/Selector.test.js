@@ -5,7 +5,6 @@ const RevokableXcert = artifacts.require('RevokableXcertMock');
 const Selector = artifacts.require('Selector');
 
 contract('Selector', (accounts) => {
-
   let selector;
 
   beforeEach(async function () {
