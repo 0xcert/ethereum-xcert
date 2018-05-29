@@ -47,17 +47,20 @@ pragma solidity ^0.4.23;
 
 import "../tokens/BurnableXcert.sol";
 
-contract MyXcertToken is BurnableXcert {
+contract BurnableXcertMock is BurnableXcert {
 
   constructor(
     string _name,
     string _symbol,
     bytes4 _conventionId
   )
-    BurnableXcert(_name, _symbol, _conventionId)
     public
   {
+    nftName = _name;
+    nftSymbol = _symbol;
+    nftConventionId = _conventionId;
   }
+
 }
 ```
 
