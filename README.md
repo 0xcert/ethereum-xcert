@@ -42,14 +42,14 @@ Since this is a Truffle project, you will find all tokens in `contracts/tokens/`
 
 ## Usage
 
-The easiest way to start is to create a new file under `contracts/tokens/` (e.g. `MyXcertToken.sol`):
+The easiest way to start is to create a new file (e.g. `contracts/tokens/MyXcertToken.sol`):
 
 ```sol
 pragma solidity ^0.4.23;
 
 import "../tokens/BurnableXcert.sol";
 
-contract BurnableXcertMock is BurnableXcert {
+contract MyXcertToken is BurnableXcert {
 
   constructor(
     string _name,
@@ -84,7 +84,7 @@ Requirements:
 
 Create a new file `migrations/2_mytoken_migration.js` and put in:
 
-```js 
+```js
 const MyXcertTokenContract = artifacts.require('./tokens/MyXcertToken.sol');
 
 module.exports = function(deployer) {
@@ -163,7 +163,7 @@ You can also check it on Ropsten [etherscan](https://ropsten.etherscan.io/addres
 // '4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865' - Token proof, calculated as sha256('1').
 // [1, 2, 3, 4] - Random config options, first element is expiration date and thus currently set to Thu Jan  1 01:00:01 CET 1970 :).
 // ['a', 'b', 'c'] - Random convention options
- 
+
 > MyXcertTokenInstance.mint(account1, '1', 'http://www.random-art.org/img/large/199607.jpg', '4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865', [1, 2, 3, 4], ['a', 'b', 'c'], { from: account0, gas: 2000000 });
 '0xe68ea41c3f7333bfd1e121c903fac20e2a27324e6f130caea8b393d68c0294f2'
 
