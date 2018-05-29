@@ -186,8 +186,8 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
     address _target,
     bool _authorized
   )
-    external
     onlyOwner
+    external
   {
     require(_target != address(0));
     addressToMintAuthorized[_target] = _authorized;

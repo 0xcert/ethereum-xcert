@@ -3,7 +3,7 @@ pragma solidity ^0.4.23;
 import "../../contracts/tokens/Xcert.sol";
 
 /**
- * @dev This is an example contract implementation of Xcert.
+ * @dev This is an example implementation of the Xcert smart contract.
  */
 contract XcertMock is Xcert {
 
@@ -25,4 +25,5 @@ contract XcertMock is Xcert {
     nftSymbol = _symbol;
     nftConventionId = _conventionId;
   }
+
 }

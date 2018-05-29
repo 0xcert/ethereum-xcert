@@ -5,11 +5,17 @@ import "../../contracts/tokens/PausableXcert.sol";
 import "../../contracts/tokens/RevokableXcert.sol";
 
 /**
- * @dev This is an example contract implementation of Xcert with all available extension: burnable,
- * pausable and revokable.
+ * @dev This is an example implementation of the Xcert smart contract with all available extensions.
  */
 contract XcertFullMock is BurnableXcert, PausableXcert, RevokableXcert {
 
+  /**
+   * @dev Contract constructor.
+   * @param _name A descriptive name for a collection of NFTs.
+   * @param _symbol An abbreviated name for NFT.
+   * @param _conventionId A bytes4 of keccak256 of json schema representing 0xcert protocol
+   * convention.
+   */
   constructor(
     string _name,
     string _symbol,
@@ -22,4 +28,5 @@ contract XcertFullMock is BurnableXcert, PausableXcert, RevokableXcert {
     nftConventionId = _conventionId;
     isPaused = false; //set the default pause state
   }
+
 }

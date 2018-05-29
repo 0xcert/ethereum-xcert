@@ -3,7 +3,7 @@ pragma solidity ^0.4.23;
 import "../../contracts/tokens/PausableXcert.sol";
 
 /**
- * @dev This is an example contract implementation of PausableXcert.
+ * @dev This is an example implementation of the PausableXcert smart contract.
  */
 contract PausableXcertMock is PausableXcert {
 
@@ -24,6 +24,7 @@ contract PausableXcertMock is PausableXcert {
     nftName = _name;
     nftSymbol = _symbol;
     nftConventionId = _conventionId;
-    isPaused = false; //set the default pause state
+    isPaused = false; // set the default pause state
   }
+
 }
