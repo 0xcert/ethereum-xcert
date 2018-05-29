@@ -151,7 +151,7 @@ contract('Xcert', (accounts) => {
     await assertRevert(xcert.setApprovalForAll(0, true));
   });
 
-  it('corectly transfers NFT from owner', async () => {
+  it('correctly transfers NFT from owner', async () => {
     var sender = accounts[1];
     var recipient = accounts[2];
 
@@ -169,7 +169,7 @@ contract('Xcert', (accounts) => {
     assert.equal(ownerOfId2, recipient);
   });
 
-  it('corectly transfers xcert from approved address', async () => {
+  it('correctly transfers xcert from approved address', async () => {
     var sender = accounts[1];
     var recipient = accounts[2];
     var owner = accounts[3];
@@ -189,7 +189,7 @@ contract('Xcert', (accounts) => {
     assert.equal(ownerOfId2, recipient);
   });
 
-  it('corectly transfers NFT as operator', async () => {
+  it('correctly transfers NFT as operator', async () => {
     var sender = accounts[1];
     var recipient = accounts[2];
     var owner = accounts[3];
@@ -233,7 +233,7 @@ contract('Xcert', (accounts) => {
     await assertRevert(xcert.transferFrom(owner, 0, id3, {from: owner}));
   });
 
-  it('corectly safe transfers NFT from owner', async () => {
+  it('correctly safe transfers NFT from owner', async () => {
     var sender = accounts[1];
     var recipient = accounts[2];
 
@@ -259,7 +259,7 @@ contract('Xcert', (accounts) => {
     await assertRevert(xcert.safeTransferFrom(sender, recipient, id2, {from: sender}));
   });
 
-  it('corectly safe transfers NFT from owner to smart contract that can recieve NFTs', async () => {
+  it('correctly safe transfers NFT from owner to smart contract that can recieve NFTs', async () => {
     var sender = accounts[1];
     var tokenReceiverMock = await TokenReceiverMock.new();
     var recipient = tokenReceiverMock.address;
