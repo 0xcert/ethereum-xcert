@@ -1,12 +1,16 @@
 {
   "name": "@0xcert/ethereum-xcert",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Xcert token standard implementation for the Ethereum blockchain.",
   "main": "truffle.js",
-  "directories": {},
+  "directories": {
+    "contracts": "contracts",
+    "migrations": "migrations",
+    "test": "test"
+  },
   "scripts": {
-    "console": "truffle console",
     "compile": "truffle compile",
+    "console": "truffle console",
     "lint": "eslint './**/*.js?(x)'",
     "migrate": "truffle migrate",
     "networks": "truffle networks",
@@ -49,6 +53,7 @@
     "certificate"
   ],
   "devDependencies": {
+    "eslint": "^4.19.1",
     "ethjs-util": "^0.1.4",
     "truffle": "^4.1.11",
     "web3-utils": "^1.0.0-beta.34"
