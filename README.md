@@ -1,6 +1,6 @@
 <img src="assets/cover.png" />
 
-![Build Status](https://travis-ci.org/0xcert/ethereum-xcert.svg?branch=master)&nbsp;[![NPM Version](https://badge.fury.io/js/@0xcert%2Fethereum-xcert.svg)](https://badge.fury.io/js/0xcert%2Fethereum-xcert)&nbsp;[![Dependencies Status](https://david-dm.org/0xcert/ethereum-xcert.svg)](https://david-dm.org/0xcert/ethereum-xcert)&nbsp;[![Bug Bounty](https://img.shields.io/badge/bounty-pending-2930e8.svg)](https://github.com/0xcert/ethereum-xcert/issues)
+![Build Status](https://travis-ci.org/0xcert/ethereum-xcert.svg?branch=master)&nbsp;[![NPM Version](https://badge.fury.io/js/@0xcert%2Fethereum-xcert.svg)](https://badge.fury.io/js/0xcert%2Fethereum-xcert)&nbsp;[![Dependencies Status](https://david-dm.org/0xcert/ethereum-xcert.svg)](https://david-dm.org/0xcert/ethereum-xcert)&nbsp;[![Bug Bounty](https://img.shields.io/badge/bounty-pending-2930e8.svg)](https://github.com/0xcert/ethereum-xcert/issues/24)
 
 > Xcert token standard implementation for the Ethereum blockchain.
 
