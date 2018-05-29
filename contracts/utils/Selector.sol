@@ -8,6 +8,7 @@ import "../tokens/RevokableXcert.sol";
 /**
  * @dev This contracts calculates interface id of Xcert contracts as described in EIP165:
  * http://tiny.cc/uo23ty.
+ * @notice See test folder for usage examples.
  */
 contract Selector {
 
