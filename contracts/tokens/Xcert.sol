@@ -17,7 +17,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
    * @dev Unique ID which determines each Xcert smart contract type by its JSON convention.
    * @notice Calculated as bytes4(keccak256(jsonSchema)).
    */
-  bytes4 private nftConventionId;
+  bytes4 internal nftConventionId;
 
   /**
    * @dev Maps NFT ID to proof.
@@ -60,20 +60,12 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
 
   /**
    * @dev Contract constructor.
-   * @param _name A descriptive name for a collection of NFTs.
-   * @param _symbol An abbreviated name for NFT.
-   * @param _conventionId A bytes4 of keccak256 of json schema representing 0xcert protocol
-   * convention.
+   * @notice When implementing this contract don't forget to set nftConventionId, nftName and
+   * nftSymbol.
    */
-  constructor(
-    string _name,
-    string _symbol,
-    bytes4 _conventionId
-  )
-    NFTokenMetadata(_name, _symbol)
+  constructor()
     public
   {
-    nftConventionId = _conventionId;
     supportedInterfaces[0x11827de5] = true; // Xcert
   }
 

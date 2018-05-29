@@ -1,9 +1,9 @@
-const BurnableXcert = artifacts.require('BurnableXcert');
+const BurnableXcert = artifacts.require('BurnableXcertMock');
 const util = require('ethjs-util');
 const web3Util = require('web3-utils');
 const assertRevert = require('../../node_modules/@0xcert/ethereum-erc721/test/helpers/assertRevert');
 
-contract('BurnableXcert', (accounts) => {
+contract('BurnableXcertMock', (accounts) => {
   let xcert;
   const id1 = web3.sha3('test1');
   const id2 = web3.sha3('test2');

@@ -1,8 +1,8 @@
 pragma solidity ^0.4.23;
 
-import "../../contracts/tokens/Xcert.sol";
+import "../../contracts/tokens/PausableXcert.sol";
 
-contract XcertMock is Xcert {
+contract PausableXcertMock is PausableXcert {
 
   /**
    * @dev Contract constructor.
@@ -21,5 +21,6 @@ contract XcertMock is Xcert {
     nftName = _name;
     nftSymbol = _symbol;
     nftConventionId = _conventionId;
+    isPaused = false; //set the default pause state
   }
 }

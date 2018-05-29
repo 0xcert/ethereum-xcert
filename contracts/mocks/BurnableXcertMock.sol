@@ -1,8 +1,8 @@
 pragma solidity ^0.4.23;
 
-import "../../contracts/tokens/Xcert.sol";
+import "../../contracts/tokens/BurnableXcert.sol";
 
-contract XcertMock is Xcert {
+contract BurnableXcertMock is BurnableXcert {
 
   /**
    * @dev Contract constructor.
@@ -22,4 +22,5 @@ contract XcertMock is Xcert {
     nftSymbol = _symbol;
     nftConventionId = _conventionId;
   }
+
 }

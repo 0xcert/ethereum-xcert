@@ -19,21 +19,13 @@ contract PausableXcert is Xcert {
 
   /**
    * @dev Contract constructor.
-   * @param _name A descriptive name for a collection of NFTs.
-   * @param _symbol An abbreviated name for NFT.
-   * @param _conventionId A bytes4 of keccak256 of json schema representing 0xcert protocol
-   * convention.
+   * @notice When implementing this contract don't forget to set nftConventionId, nftName,
+   * nftSymbol and isPaused.
    */
-  constructor(
-    string _name,
-    string _symbol,
-    bytes4 _conventionId
-  )
-    Xcert(_name, _symbol, _conventionId)
+  constructor()
     public
   {
     supportedInterfaces[0xbedb86fb] = true; // PausableXcert
-    isPaused = false;
   }
 
   /**

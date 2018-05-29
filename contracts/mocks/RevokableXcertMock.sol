@@ -1,8 +1,8 @@
 pragma solidity ^0.4.23;
 
-import "../../contracts/tokens/Xcert.sol";
+import "../../contracts/tokens/RevokableXcert.sol";
 
-contract XcertMock is Xcert {
+contract RevokableXcertMock is RevokableXcert {
 
   /**
    * @dev Contract constructor.

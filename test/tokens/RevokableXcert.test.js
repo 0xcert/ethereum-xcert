@@ -1,9 +1,9 @@
-const RevokableXcert = artifacts.require('RevokableXcert');
+const RevokableXcert = artifacts.require('RevokableXcertMock');
 const util = require('ethjs-util');
 const web3Util = require('web3-utils');
 const assertRevert = require('../../node_modules/@0xcert/ethereum-erc721/test/helpers/assertRevert');
 
-contract('RevokableXcert', (accounts) => {
+contract('RevokableXcertMock', (accounts) => {
   let xcert;
   const id1 = web3.sha3('test1');
   const id2 = web3.sha3('test2');
