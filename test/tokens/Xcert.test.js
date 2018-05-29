@@ -320,16 +320,4 @@ contract('XcertMock', (accounts) => {
     await xcert.mint(accounts[1], id2, 'url2', proof, config, data);
     await assertRevert(xcert.tokenDataValue.call(id2, 0));
   });
-
-  it('correctly changes NFT data', async () => {
-    await xcert.mint(accounts[1], id2, 'url2', proof, config, [web3Util.padLeft(web3Util.numberToHex(3), 64)]);
-    await xcert.setTokenDataValue(id2, 0, web3Util.padLeft(web3Util.numberToHex(5), 64));
-    const stage = await xcert.tokenDataValue.call(id2, 0);
-    assert.equal(stage, 5);
-  });
-
-  it('reverts trying to change NFT non-existing data', async () => {
-    await xcert.mint(accounts[1], id2, 'url2', proof, config, data);
-    await assertRevert(xcert.setTokenDataValue(id2, 0, web3Util.padLeft(web3Util.numberToHex(5), 64)));
-  });
 });

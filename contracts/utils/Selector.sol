@@ -25,7 +25,6 @@ contract Selector {
       i.mint.selector
       ^ i.conventionId.selector
       ^ i.tokenProof.selector
-      ^ i.setTokenDataValue.selector
       ^ i.tokenDataValue.selector
       ^ i.tokenExpirationTime.selector
       ^ i.setMintAuthorizedAddress.selector

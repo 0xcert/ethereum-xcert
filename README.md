@@ -176,10 +176,6 @@ You can also check it on Ropsten [etherscan](https://ropsten.etherscan.io/addres
 > MyXcertTokenInstance.tokenExpirationDate('1')
 '0x1000000000000000000000000000000000000000000000000000000000000000'
 
-// Set token data value at index 0 to date to Fri Jun  7 21:33:20 CEST 2024
-> MyXcertTokenInstance.setTokenDataValue('1', 0, '1717788800', { from: account0 });
-'0x85bf59c60ee06b92600e16bde795fded18355b50481f3048d7b344abec2d57a5'
-
 > MyXcertTokenInstance.tokenDataValue('1', 0);
 '0x6663608000000000000000000000000000000000000000000000000000000000' // hex value of 1717788800
 
