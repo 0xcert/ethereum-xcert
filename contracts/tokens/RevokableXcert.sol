@@ -2,8 +2,18 @@ pragma solidity ^0.4.21;
 
 import "./Xcert.sol";
 
+/**
+ * @dev Xcert implementation where tokens can be destroyed by the issuer.
+ */
 contract RevokableXcert is Xcert {
 
+  /**
+   * @dev Contract constructor.
+   * @param _name A descriptive name for a collection of NFTs.
+   * @param _symbol An abbreviated name for NFT.
+   * @param _conventionId A bytes4 of keccak256 of json schema representing 0xcert protocol
+   * convention.
+   */
   constructor(
     string _name,
     string _symbol,
