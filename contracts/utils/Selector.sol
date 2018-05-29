@@ -5,32 +5,36 @@ import "../tokens/BurnableXcert.sol";
 import "../tokens/PausableXcert.sol";
 import "../tokens/RevokableXcert.sol";
 
+/**
+ * @dev This contracts calculates interface id of Xcert contracts as described in EIP165:
+ * http://tiny.cc/uo23ty.
+ */
 contract Selector {
 
-    function calculateXcertSelector() public pure returns (bytes4) {
-      Xcert i;
-      return i.mint.selector
-         ^ i.conventionId.selector
-         ^ i.tokenProof.selector
-         ^ i.setTokenDataValue.selector
-         ^ i.tokenDataValue.selector
-         ^ i.tokenExpirationDate.selector
-         ^ i.setMintAuthorizedAddress.selector
-         ^ i.isMintAuthorizedAddress.selector;
-    }
+  function calculateXcertSelector() public pure returns (bytes4) {
+    Xcert i;
+    return i.mint.selector
+      ^ i.conventionId.selector
+      ^ i.tokenProof.selector
+      ^ i.setTokenDataValue.selector
+      ^ i.tokenDataValue.selector
+      ^ i.tokenExpirationTime.selector
+      ^ i.setMintAuthorizedAddress.selector
+      ^ i.isMintAuthorizedAddress.selector;
+  }
 
-    function calculateBurnableXcertSelector() public pure returns (bytes4) {
-      BurnableXcert i;
-      return i.burn.selector;
-    }
+  function calculateBurnableXcertSelector() public pure returns (bytes4) {
+    BurnableXcert i;
+    return i.burn.selector;
+  }
 
-    function calculatePausableXcertSelector() public pure returns (bytes4) {
-      PausableXcert i;
-      return i.setPause.selector;
-    }
+  function calculatePausableXcertSelector() public pure returns (bytes4) {
+    PausableXcert i;
+    return i.setPause.selector;
+  }
 
-    function calculateRevokableXcertSelector() public pure returns (bytes4) {
-      RevokableXcert i;
-      return i.revoke.selector;
-    }
+  function calculateRevokableXcertSelector() public pure returns (bytes4) {
+    RevokableXcert i;
+    return i.revoke.selector;
+  }
 }

@@ -74,7 +74,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
     public
   {
     nftConventionId = _conventionId;
-    supportedInterfaces[0xb19c9115] = true; // Xcert
+    supportedInterfaces[0x11827de5] = true; // Xcert
   }
 
   /**
@@ -83,7 +83,8 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
    * @param _id The NFT to be minted by the msg.sender.
    * @param _uri An URI pointing to NFT metadata.
    * @param _proof Cryptographic asset imprint.
-   * @param _config Array of protocol config values.
+   * @param _config Array of protocol config values where 0 index represents token expiration
+   * timestamp, other indexes are not yet definied but are ready for future xcert upgrades.
    * @param _data Array of convention data values.
    */
   function mint(
@@ -170,10 +171,10 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
   }
 
   /**
-   * @dev Returns expiration date from token config values.
-   * @param _tokenId Id of the NFT we want to get expiration date of.
+   * @dev Returns expiration date from 0 index of token config values.
+   * @param _tokenId Id of the NFT we want to get expiration time of.
    */
-  function tokenExpirationDate(
+  function tokenExpirationTime(
     uint256 _tokenId
   )
     validNFToken(_tokenId)
