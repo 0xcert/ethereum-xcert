@@ -4,7 +4,7 @@ import "../tokens/Xcert.sol";
 import "../tokens/BurnableXcert.sol";
 import "../tokens/PausableXcert.sol";
 import "../tokens/RevokableXcert.sol";
-import "../tokens/ManageableXcert.sol";
+import "../tokens/MutableXcert.sol";
 
 /**
  * @dev This contracts calculates interface id of Xcert contracts as described in EIP165:
@@ -72,12 +72,12 @@ contract Selector {
   /**
    * @dev Calculates and returns interface ID for the RevokableXcert smart contract.
    */
-  function calculateManageableXcertSelector()
+  function calculateMutableXcertSelector()
     public
     pure
     returns (bytes4)
   {
-    ManageableXcert i;
+    MutableXcert i;
     return i.setTokenData.selector;
   }
 

@@ -5,7 +5,7 @@ import "./Xcert.sol";
 /**
  * @dev Xcert implementation where token data can be changed by authorized address.
  */
-contract ManageableXcert is Xcert {
+contract MutableXcert is Xcert {
 
   /**
    * @dev Emits when an Token data is changed.
@@ -25,7 +25,7 @@ contract ManageableXcert is Xcert {
   constructor()
     public
   {
-    supportedInterfaces[0x59118221] = true; // ManageableXcert
+    supportedInterfaces[0x59118221] = true; // MutableXcert
   }
 
   /**
