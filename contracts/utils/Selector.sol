@@ -4,6 +4,7 @@ import "../tokens/Xcert.sol";
 import "../tokens/BurnableXcert.sol";
 import "../tokens/PausableXcert.sol";
 import "../tokens/RevokableXcert.sol";
+import "../tokens/ManageableXcert.sol";
 
 /**
  * @dev This contracts calculates interface id of Xcert contracts as described in EIP165:
@@ -27,8 +28,8 @@ contract Selector {
       ^ i.tokenProof.selector
       ^ i.tokenDataValue.selector
       ^ i.tokenExpirationTime.selector
-      ^ i.setMintAuthorizedAddress.selector
-      ^ i.isMintAuthorizedAddress.selector
+      ^ i.setAuthorizedAddress.selector
+      ^ i.isAuthorizedAddress.selector
     );
   }
 
@@ -66,6 +67,18 @@ contract Selector {
   {
     RevokableXcert i;
     return i.revoke.selector;
+  }
+
+  /**
+   * @dev Calculates and returns interface ID for the RevokableXcert smart contract.
+   */
+  function calculateManageableXcertSelector()
+    public
+    pure
+    returns (bytes4)
+  {
+    ManageableXcert i;
+    return i.setTokenData.selector;
   }
 
 }

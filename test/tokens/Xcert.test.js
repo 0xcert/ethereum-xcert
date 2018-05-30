@@ -50,35 +50,35 @@ contract('XcertMock', (accounts) => {
     await assertRevert(xcert.mint('0', id3, 'url3', proof, config, data, { from: accounts[1] }));
   });
 
-  it('correctly authotizes address for minting', async () => {
-    const { logs } = await xcert.setMintAuthorizedAddress(accounts[1], true);
-    const mintAuthorizedAddressEvent = logs.find(e => e.event === 'MintAuthorizedAddress');
-    assert.notEqual(mintAuthorizedAddressEvent, undefined);
+  it('correctly authotizes address', async () => {
+    const { logs } = await xcert.setAuthorizedAddress(accounts[1], true);
+    const authorizedAddressEvent = logs.find(e => e.event === 'AuthorizedAddress');
+    assert.notEqual(authorizedAddressEvent, undefined);
   });
 
   it('throws when someone else then the owner tries to authotize address ', async () => {
-    await assertRevert(xcert.setMintAuthorizedAddress(accounts[1], true, {from: accounts[2]}));
+    await assertRevert(xcert.setAuthorizedAddress(accounts[1], true, {from: accounts[2]}));
   });
 
   it('throws when trying to authorize zero address', async () => {
-    await assertRevert(xcert.setMintAuthorizedAddress('0', true));
+    await assertRevert(xcert.setAuthorizedAddress('0', true));
   });
 
   it('correctly mints new NFT by authorized address', async () => {
     const authorized = accounts[1];
     const recipient = accounts[2];
-    await xcert.setMintAuthorizedAddress(authorized, true);
+    await xcert.setAuthorizedAddress(authorized, true);
     await xcert.mint(recipient, id3, 'url3', proof, config, data, {from: authorized});
 
     const count = await xcert.balanceOf(recipient);
     assert.equal(count.toNumber(), 1);
   });
 
-  it('throws trying to ming from address which authorization got revoked', async () => {
+  it('throws trying to mint from address which authorization got revoked', async () => {
     const authorized = accounts[1];
     const recipient = accounts[2];
-    await xcert.setMintAuthorizedAddress(authorized, true);
-    await xcert.setMintAuthorizedAddress(authorized, false);
+    await xcert.setAuthorizedAddress(authorized, true);
+    await xcert.setAuthorizedAddress(authorized, false);
     await assertRevert(xcert.mint(recipient, id3, 'url3', proof, config, data, {from: authorized}));
   });
 

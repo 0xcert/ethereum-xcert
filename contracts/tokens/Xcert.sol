@@ -35,17 +35,17 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
   mapping (uint256 => bytes32[]) internal data;
 
   /**
-   * @dev Maps authorized addresses to mint.
+   * @dev Maps address to authorization of contract.
    */
-  mapping (address => bool) internal addressToMintAuthorized;
+  mapping (address => bool) internal addressToAuthorized;
 
   /**
-   * @dev Emits when an address is authorized to mint new NFT or the authorization is revoked.
-   * The _target can mint new NFTs.
+   * @dev Emits when an address is authorized to some contract control or the authorization is revoked.
+   * The _target has some contract controle like minting new NFTs.
    * @param _target Address to set authorized state.
    * @param _authorized True if the _target is authorised, false to revoke authorization.
    */
-  event MintAuthorizedAddress(
+  event AuthorizedAddress(
     address indexed _target,
     bool _authorized
   );
@@ -53,8 +53,8 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
   /**
    * @dev Guarantees that msg.sender is allowed to mint a new NFT.
    */
-  modifier canMint() {
-    require(msg.sender == owner || addressToMintAuthorized[msg.sender]);
+  modifier isAuthorized() {
+    require(msg.sender == owner || addressToAuthorized[msg.sender]);
     _;
   }
 
@@ -66,7 +66,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
   constructor()
     public
   {
-    supportedInterfaces[0x54565ba0] = true; // Xcert
+    supportedInterfaces[0x6be14f75] = true; // Xcert
   }
 
   /**
@@ -88,7 +88,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
     bytes32[] _data
   )
     external
-    canMint()
+    isAuthorized()
   {
     require(_config.length > 0);
     require(bytes(_proof).length > 0);
@@ -163,7 +163,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
    * @param _target Address to set authorized state.
    * @param _authorized True if the _target is authorised, false to revoke authorization.
    */
-  function setMintAuthorizedAddress(
+  function setAuthorizedAddress(
     address _target,
     bool _authorized
   )
@@ -171,8 +171,8 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
     external
   {
     require(_target != address(0));
-    addressToMintAuthorized[_target] = _authorized;
-    emit MintAuthorizedAddress(_target, _authorized);
+    addressToAuthorized[_target] = _authorized;
+    emit AuthorizedAddress(_target, _authorized);
   }
 
   /**
@@ -180,7 +180,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
    * @param _target Address for which we want to check if it is authorized.
    * @return Is authorized or not.
    */
-  function isMintAuthorizedAddress(
+  function isAuthorizedAddress(
     address _target
   )
     external
@@ -188,6 +188,6 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata {
     returns (bool)
   {
     require(_target != address(0));
-    return addressToMintAuthorized[_target];
+    return addressToAuthorized[_target];
   }
 }
