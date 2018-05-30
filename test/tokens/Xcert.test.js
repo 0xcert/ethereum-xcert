@@ -50,7 +50,7 @@ contract('XcertMock', (accounts) => {
     await assertRevert(xcert.mint('0', id3, 'url3', proof, config, data, { from: accounts[1] }));
   });
 
-  it('correctly authotizes address for minting', async () => {
+  it('correctly authotizes address', async () => {
     const { logs } = await xcert.setAuthorizedAddress(accounts[1], true);
     const authorizedAddressEvent = logs.find(e => e.event === 'AuthorizedAddress');
     assert.notEqual(authorizedAddressEvent, undefined);
@@ -74,7 +74,7 @@ contract('XcertMock', (accounts) => {
     assert.equal(count.toNumber(), 1);
   });
 
-  it('throws trying to ming from address which authorization got revoked', async () => {
+  it('throws trying to mint from address which authorization got revoked', async () => {
     const authorized = accounts[1];
     const recipient = accounts[2];
     await xcert.setAuthorizedAddress(authorized, true);
