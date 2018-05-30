@@ -27,8 +27,8 @@ contract Selector {
       ^ i.tokenProof.selector
       ^ i.tokenDataValue.selector
       ^ i.tokenExpirationTime.selector
-      ^ i.setMintAuthorizedAddress.selector
-      ^ i.isMintAuthorizedAddress.selector
+      ^ i.setAuthorizedAddress.selector
+      ^ i.isAuthorizedAddress.selector
     );
   }
 
