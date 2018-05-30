@@ -2,7 +2,7 @@ const Xcert = artifacts.require('XcertMock');
 const BurnableXcert = artifacts.require('BurnableXcertMock');
 const PausableXcert = artifacts.require('PausableXcertMock');
 const RevokableXcert = artifacts.require('RevokableXcertMock');
-const ManageableXcert = artifacts.require('ManageableXcertMock');
+const MutableXcert = artifacts.require('MutableXcertMock');
 const Selector = artifacts.require('Selector');
 
 contract('Selector', (accounts) => {
@@ -40,9 +40,9 @@ contract('Selector', (accounts) => {
     assert.equal(supports, true);
   });
 
-  it('Checks ManageableXcert selector', async () => {
-    const xcert = await ManageableXcert.new('Foo', 'F', '0xa65de9e6');
-    const bytes = await selector.calculateManageableXcertSelector();
+  it('Checks MutableXcert selector', async () => {
+    const xcert = await MutableXcert.new('Foo', 'F', '0xa65de9e6');
+    const bytes = await selector.calculateMutableXcertSelector();
     const supports = await xcert.supportsInterface(bytes);
     assert.equal(supports, true);
   });

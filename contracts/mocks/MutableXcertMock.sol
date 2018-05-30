@@ -1,11 +1,11 @@
 pragma solidity ^0.4.23;
 
-import "../../contracts/tokens/ManageableXcert.sol";
+import "../../contracts/tokens/MutableXcert.sol";
 
 /**
- * @dev This is an example implementation of the ManageableXcert smart contract.
+ * @dev This is an example implementation of the MutableXcert smart contract.
  */
-contract ManageableXcertMock is ManageableXcert {
+contract MutableXcertMock is MutableXcert {
 
   /**
    * @dev Contract constructor.
@@ -25,4 +25,5 @@ contract ManageableXcertMock is ManageableXcert {
     nftSymbol = _symbol;
     nftConventionId = _conventionId;
   }
+
 }
