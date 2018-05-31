@@ -34,4 +34,12 @@ contract('XcertFullMock', (accounts) => {
     const count = await xcert.balanceOf(accounts[0]);
     assert.equal(count, 0);
   });
+
+  it('correctly changes xcert data.', async () => {
+    const data2 = [web3Util.padLeft(web3Util.numberToHex(5), 64)];
+
+    await xcert.setTokenData(id1, data2);
+    tokenData = await xcert.tokenDataValue.call(id1, 0);
+    assert.equal(tokenData, data2);
+  });
 });
