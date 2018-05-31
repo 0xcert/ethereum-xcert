@@ -3,11 +3,12 @@ pragma solidity ^0.4.23;
 import "../../contracts/tokens/BurnableXcert.sol";
 import "../../contracts/tokens/PausableXcert.sol";
 import "../../contracts/tokens/RevokableXcert.sol";
+import "../../contracts/tokens/MutableXcert.sol";
 
 /**
  * @dev This is an example implementation of the Xcert smart contract with all available extensions.
  */
-contract XcertFullMock is BurnableXcert, PausableXcert, RevokableXcert {
+contract XcertFullMock is BurnableXcert, PausableXcert, RevokableXcert, MutableXcert {
 
   /**
    * @dev Contract constructor.
