@@ -1,7 +1,7 @@
 {
   "name": "@0xcert/ethereum-xcert",
-  "version": "1.5.1",
-  "description": "Xcert token standard implementation for the Ethereum blockchain.",
+  "version": "1.5.2",
+  "description": "Xcert token implementation for the Ethereum blockchain.",
   "main": "truffle.js",
   "directories": {
     "contracts": "contracts",
@@ -64,6 +64,6 @@
     "web3-utils": "^1.0.0-beta.34"
   },
   "dependencies": {
-    "@0xcert/ethereum-erc721": "^1.4.2"
+    "@0xcert/ethereum-erc721": "^1.4.3"
   }
 }
