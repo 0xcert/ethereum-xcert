@@ -1,7 +1,7 @@
 const MutableXcert = artifacts.require('MutableXcertMock');
 const util = require('ethjs-util');
 const web3Util = require('web3-utils');
-const assertRevert = require('../../node_modules/@0xcert/ethereum-erc721/test/helpers/assertRevert');
+const assertRevert = require('@0xcert/ethereum-erc721/test/helpers/assertRevert');
 
 contract('MutableXcertMock', (accounts) => {
   let xcert;
