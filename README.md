@@ -16,7 +16,24 @@ Requirements:
 - NodeJS 9.0+ recommended.
 - Windows, Linux or Mac OS X.
 
-Simply clone the repository and install npm packages:
+### NPM
+
+This is an [NPM](https://www.npmjs.com/package/@0xcert/ethereum-xcert) module for [Truffle](http://truffleframework.com) framework. In order to use it as a dependency in your Javascript project, you must first install it through the `npm` command:
+
+```
+$ npm install @0xcert/ethereum-xcert
+```
+
+To interact with package's contracts within JavaScript code, you simply need to require that package's .json files:
+
+```js
+const contract = require("@0xcert/ethereum-xcert/build/contracts/Xcert.json");
+console.log(contract);
+```
+
+### Source
+
+Clone the repository and install the required npm dependencies:
 
 ```
 $ git clone git@github.com:0xcert/ethereum-xcert.git
