@@ -64,6 +64,6 @@
     "web3-utils": "^1.0.0-beta.34"
   },
   "dependencies": {
-    "@0xcert/ethereum-erc721": "^1.5.0"
+    "@0xcert/ethereum-erc721": "^1.6.0"
   }
 }
