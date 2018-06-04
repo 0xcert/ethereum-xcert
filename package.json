@@ -1,6 +1,6 @@
 {
   "name": "@0xcert/ethereum-xcert",
-  "version": "1.5.2",
+  "version": "1.6.0",
   "description": "Xcert token implementation for the Ethereum blockchain.",
   "main": "truffle.js",
   "directories": {
