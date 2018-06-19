@@ -11,6 +11,10 @@ contract('XcertMock', (accounts) => {
   const id3 = web3.sha3('test3');
   const id4 = web3.sha3('test4');
   const proof = '1e205550c271490347e5e2393a02e94d284bbe9903f023ba098355b8d75974c8';
+  /*
+   * Pad left is needed to transform hex into bytes32 otherwise trailing 0 gets added and it changes
+   * the number. 
+   */
   const config = [web3Util.padLeft(web3Util.numberToHex(1821195657), 64)];
   const data = [];
 
