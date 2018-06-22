@@ -10,6 +10,8 @@ Purpose of this implemetation is to provide a good starting point for anyone who
 
 An Xcert is an extension of the [ERC-721](https://github.com/0xcert/ethereum-erc721/) implementation. It is an opinionated non-fungible token which carries a proof of a digital asset and supports additional 0xcert protocol features. You can read more about this in the official [0xcert protocol yellow paper](https://github.com/0xcert/whitepaper/blob/master/dist/0xcert-protocol.pdf).
 
+<img src="https://github.com/0xcert/ethereum-xcert/raw/master/assets/diagram.png" />
+
 ## Structure
 
 Since this is a Truffle project, you will find all tokens in `contracts/tokens/` directory. There are multiple implementations and you can select between:
