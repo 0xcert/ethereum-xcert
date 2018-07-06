@@ -50,7 +50,7 @@ contract('XcertMock', (accounts) => {
     await assertRevert(xcert.mint('0', id3, 'url3', proof, config, data));
   });
 
-  it('throws when trying to mint NFT from non owner ot authorized address', async () => {
+  it('throws when trying to mint NFT from non owner to authorized address', async () => {
     await assertRevert(xcert.mint('0', id3, 'url3', proof, config, data, { from: accounts[1] }));
   });
 
