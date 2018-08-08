@@ -1,7 +1,7 @@
 pragma solidity ^0.4.24;
 
 import "@0xcert/ethereum-utils/contracts/math/SafeMath.sol";
-import "@0xcert/ethereum-utils/contracts/ownership/Ownable.sol";
+import "@0xcert/ethereum-utils/contracts/ownership/Claimable.sol";
 import "@0xcert/ethereum-utils/contracts/utils/AddressUtils.sol";
 import "@0xcert/ethereum-erc721/contracts/tokens/NFTokenMetadata.sol";
 import "@0xcert/ethereum-erc721/contracts/tokens/NFTokenEnumerable.sol";
@@ -9,7 +9,7 @@ import "@0xcert/ethereum-erc721/contracts/tokens/NFTokenEnumerable.sol";
 /**
  * @dev Xcert implementation.
  */
-contract Xcert is NFTokenEnumerable, NFTokenMetadata {
+contract Xcert is NFTokenEnumerable, NFTokenMetadata, Claimable {
   using SafeMath for uint256;
   using AddressUtils for address;
 
