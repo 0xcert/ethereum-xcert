@@ -176,7 +176,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata, Claimable {
   }
 
   /**
-   * @dev Sets mint authorised address.
+   * @dev Gets mint authorised address.
    * @param _target Address for which we want to check if it is authorized.
    * @return Is authorized or not.
    */
