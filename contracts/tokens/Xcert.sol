@@ -76,7 +76,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata, Claimable {
    * @param _uri An URI pointing to NFT metadata.
    * @param _proof Cryptographic asset imprint.
    * @param _config Array of protocol config values where 0 index represents token expiration
-   * timestamp, other indexes are not yet definied but are ready for future xcert upgrades.
+   * timestamp, other indexes are not yet defined but are ready for future Xcert upgrades.
    * @param _data Array of convention data values.
    */
   function mint(
@@ -176,7 +176,7 @@ contract Xcert is NFTokenEnumerable, NFTokenMetadata, Claimable {
   }
 
   /**
-   * @dev Sets mint authorised address.
+   * @dev Gets mint authorised address.
    * @param _target Address for which we want to check if it is authorized.
    * @return Is authorized or not.
    */
